@@ -1,0 +1,7 @@
+{
+  "name": "Ice Me Inc.",
+  "description": "Sierra Leone's premier cold chain logistics and industrial ice provider.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}
