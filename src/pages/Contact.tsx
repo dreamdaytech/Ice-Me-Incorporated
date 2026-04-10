@@ -1,128 +1,172 @@
 import { motion } from 'motion/react';
-import { Send, Share2, Globe, MapPin } from 'lucide-react';
+import { Mail, Phone, MapPin, ArrowRight, Map as MapIcon } from 'lucide-react';
 
 export default function Contact() {
   return (
-    <div className="min-h-screen flex flex-col w-full">
-      <section className="max-w-7xl mx-auto px-8 py-24 w-full">
-        <div className="flex flex-col md:flex-row items-end gap-8 mb-16">
-          <h1 className="text-6xl md:text-8xl font-black tracking-tighter text-primary max-w-2xl leading-[0.9]">
-            CHILL<br/>CONNECT.
-          </h1>
-          <p className="text-on-surface-variant text-lg font-medium max-w-sm mb-4">
-            The Monolith of Cold Logistics in Sierra Leone. Reach out to our frozen infrastructure experts today.
-          </p>
+    <div className="min-h-screen flex flex-col w-full bg-surface">
+      {/* Contact Header */}
+      <section className="px-6 py-16 md:py-24 max-w-7xl mx-auto w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end">
+          <div className="lg:col-span-8">
+            <span className="text-xs font-bold tracking-[0.05em] uppercase text-on-surface-variant mb-4 block">Connect with our cold chain</span>
+            <h1 className="text-6xl md:text-8xl font-black tracking-tighter text-primary leading-[0.9]">
+              CHILL<br/>CONNECT.
+            </h1>
+          </div>
+          <div className="lg:col-span-4 pb-2">
+            <p className="text-on-surface-variant text-lg leading-relaxed">
+              The Monolith of Cold Logistics in Sierra Leone. Reach out to our frozen infrastructure experts today.
+            </p>
+          </div>
         </div>
+      </section>
 
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
-          {/* Contact Info */}
-          <div className="md:col-span-5 bg-surface-container-lowest p-10 rounded-xl flex flex-col justify-between shadow-sm">
-            <div>
-              <span className="text-xs font-bold tracking-[0.05em] uppercase text-on-secondary-container bg-secondary-container px-3 py-1 rounded-full mb-8 inline-block">
-                Direct Line
-              </span>
-              <div className="space-y-12">
-                <div>
-                  <label className="text-xs font-bold tracking-[0.05em] uppercase text-outline block mb-2">Location</label>
-                  <p className="text-xl font-bold text-primary">
-                    14 Lumley Beach Road,<br/>Freetown, Sierra Leone<br/>
-                    <span className="text-on-surface-variant font-medium text-sm">(Opposite bus station)</span>
-                  </p>
+      {/* Main Content Grid */}
+      <section className="px-6 pb-24 max-w-7xl mx-auto w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+          {/* Contact Information & Map */}
+          <div className="lg:col-span-5 space-y-8">
+            {/* Information Cards */}
+            <div className="bg-surface-container-low p-8 space-y-8 rounded-xl">
+              <div className="space-y-8">
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-primary flex items-center justify-center text-on-primary shrink-0 rounded-lg">
+                    <Mail className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <p className="text-xs font-bold tracking-widest uppercase text-on-surface-variant mb-1">Email</p>
+                    <p className="text-xl font-bold text-primary">info@iceme.com</p>
+                  </div>
                 </div>
-                <div>
-                  <label className="text-xs font-bold tracking-[0.05em] uppercase text-outline block mb-2">Phone</label>
-                  <p className="text-xl font-bold text-primary">+232 77 612 425</p>
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-primary flex items-center justify-center text-on-primary shrink-0 rounded-lg">
+                    <Phone className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <p className="text-xs font-bold tracking-widest uppercase text-on-surface-variant mb-1">Telephone</p>
+                    <p className="text-xl font-bold text-primary">+23277612425</p>
+                  </div>
                 </div>
-                <div>
-                  <label className="text-xs font-bold tracking-[0.05em] uppercase text-outline block mb-2">Email</label>
-                  <p className="text-xl font-bold text-primary">info@iceme.sl</p>
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-primary flex items-center justify-center text-on-primary shrink-0 rounded-lg">
+                    <MapPin className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <p className="text-xs font-bold tracking-widest uppercase text-on-surface-variant mb-1">Address</p>
+                    <p className="text-lg font-bold text-primary leading-tight">14 Lumley Beach Road, Freetown, Sierra Leone</p>
+                    <p className="text-sm text-on-surface-variant mt-1 font-medium">(Opposite bus station)</p>
+                  </div>
                 </div>
               </div>
+              
+              {/* Operating Hours */}
+              <div className="pt-8 border-t border-outline-variant/30">
+                <div className="flex items-center gap-3 text-primary">
+                  <div className="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
+                  <h3 className="font-bold text-lg">Operating Hours</h3>
+                </div>
+                <p className="mt-2 text-on-surface-variant font-medium">Round-the-clock operations for consistent ice supply, every day of the year.</p>
+              </div>
             </div>
-            <div className="mt-16 flex gap-4">
-              <button className="w-12 h-12 bg-surface-container rounded-lg flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors">
-                <Share2 className="w-5 h-5" />
-              </button>
-              <button className="w-12 h-12 bg-surface-container rounded-lg flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors">
-                <Globe className="w-5 h-5" />
-              </button>
+
+            {/* Map Placeholder */}
+            <div className="relative group overflow-hidden bg-surface-container-highest aspect-video rounded-xl flex items-center justify-center">
+              <img 
+                className="absolute inset-0 w-full h-full object-cover grayscale opacity-50 transition-transform duration-700 group-hover:scale-105" 
+                src="https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&q=80&w=2000" 
+                alt="Freetown Map"
+                referrerPolicy="no-referrer"
+              />
+              <div className="relative z-10 text-center p-6 bg-white/80 backdrop-blur-md shadow-xl border border-white/20 rounded-lg">
+                <MapIcon className="w-10 h-10 text-primary mx-auto mb-2" />
+                <p className="font-bold text-primary">14 Lumley Beach Road</p>
+                <a className="text-xs uppercase tracking-widest font-bold text-primary mt-2 block hover:underline" href="#">Open in Google Maps</a>
+              </div>
             </div>
           </div>
 
-          {/* Form */}
-          <div className="md:col-span-7 bg-surface-container-low p-10 rounded-xl">
-            <h2 className="text-3xl font-bold text-primary mb-8 tracking-tight">Send a Message</h2>
-            <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="space-y-1">
-                  <label className="text-xs font-bold tracking-[0.05em] uppercase text-on-surface-variant ml-1">Name</label>
+          {/* Contact Form */}
+          <div className="lg:col-span-7">
+            <div className="bg-[#030515] p-8 md:p-12 text-white rounded-xl">
+              <h2 className="text-3xl font-bold mb-8 tracking-tight text-white">Send a Message</h2>
+              <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="space-y-2">
+                    <label className="text-xs font-bold uppercase tracking-widest opacity-70">Name</label>
+                    <input 
+                      className="w-full bg-white/5 border-0 border-b-2 border-white/10 focus:border-white focus:ring-0 text-white py-4 px-0 transition-colors placeholder:text-white/20 outline-none" 
+                      placeholder="Your Full Name" 
+                      type="text"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-xs font-bold uppercase tracking-widest opacity-70">Email Address</label>
+                    <input 
+                      className="w-full bg-white/5 border-0 border-b-2 border-white/10 focus:border-white focus:ring-0 text-white py-4 px-0 transition-colors placeholder:text-white/20 outline-none" 
+                      placeholder="email@example.com" 
+                      type="email"
+                    />
+                  </div>
+                </div>
+                <div className="space-y-2">
+                  <label className="text-xs font-bold uppercase tracking-widest opacity-70">Subject</label>
                   <input 
-                    className="w-full bg-surface-container-high border-none rounded-md px-4 py-4 focus:ring-2 focus:ring-primary/20 transition-all outline-none" 
-                    placeholder="John Doe" 
+                    className="w-full bg-white/5 border-0 border-b-2 border-white/10 focus:border-white focus:ring-0 text-white py-4 px-0 transition-colors placeholder:text-white/20 outline-none" 
+                    placeholder="Inquiry Type" 
                     type="text"
                   />
                 </div>
-                <div className="space-y-1">
-                  <label className="text-xs font-bold tracking-[0.05em] uppercase text-on-surface-variant ml-1">Email</label>
-                  <input 
-                    className="w-full bg-surface-container-high border-none rounded-md px-4 py-4 focus:ring-2 focus:ring-primary/20 transition-all outline-none" 
-                    placeholder="john@example.sl" 
-                    type="email"
-                  />
+                <div className="space-y-2">
+                  <label className="text-xs font-bold uppercase tracking-widest opacity-70">Message</label>
+                  <textarea 
+                    className="w-full bg-white/5 border-0 border-b-2 border-white/10 focus:border-white focus:ring-0 text-white py-4 px-0 transition-colors placeholder:text-white/20 outline-none resize-none" 
+                    placeholder="How can we help your business stay cool?" 
+                    rows={5}
+                  ></textarea>
                 </div>
-              </div>
-              <div className="space-y-1">
-                <label className="text-xs font-bold tracking-[0.05em] uppercase text-on-surface-variant ml-1">Subject</label>
-                <input 
-                  className="w-full bg-surface-container-high border-none rounded-md px-4 py-4 focus:ring-2 focus:ring-primary/20 transition-all outline-none" 
-                  placeholder="Cold Chain Inquiry" 
-                  type="text"
-                />
-              </div>
-              <div className="space-y-1">
-                <label className="text-xs font-bold tracking-[0.05em] uppercase text-on-surface-variant ml-1">Message</label>
-                <textarea 
-                  className="w-full bg-surface-container-high border-none rounded-md px-4 py-4 focus:ring-2 focus:ring-primary/20 transition-all outline-none resize-none" 
-                  placeholder="Tell us about your logistics needs..." 
-                  rows={4}
-                ></textarea>
-              </div>
-              <button className="w-full bg-primary text-on-primary font-bold py-5 rounded-md hover:opacity-90 transition-opacity flex items-center justify-center gap-3">
-                <Send className="w-5 h-5" />
-                Submit Request
-              </button>
-            </form>
-          </div>
-
-          {/* Map Placeholder */}
-          <div className="md:col-span-12 bg-surface-container-highest h-[400px] rounded-xl overflow-hidden relative">
-            <div className="absolute inset-0 bg-cover bg-center opacity-60" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&q=80&w=2000')" }}></div>
-            <div className="absolute inset-0 bg-primary/10 backdrop-blur-[1px]"></div>
-            <div className="absolute bottom-8 left-8 bg-white/90 backdrop-blur-md p-6 rounded-lg shadow-xl max-w-xs">
-              <div className="flex items-center gap-3 mb-2">
-                <div className="w-3 h-3 bg-primary rounded-full animate-pulse"></div>
-                <span className="text-sm font-bold text-primary">Headquarters</span>
-              </div>
-              <p className="text-sm text-on-surface-variant font-medium leading-relaxed">
-                Find us directly opposite the main bus station for efficient loading and coordination.
-              </p>
+                <div className="pt-4">
+                  <button className="w-full md:w-auto px-10 py-5 bg-white text-[#001a38] font-black uppercase tracking-widest text-sm hover:bg-slate-100 transition-all flex items-center justify-center gap-3 group rounded-md">
+                    Send Message
+                    <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+                  </button>
+                </div>
+              </form>
             </div>
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none">
-              <div className="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center shadow-2xl scale-110">
-                <MapPin className="w-8 h-8 fill-current" />
+
+            {/* Visual Accent Card */}
+            <div className="mt-8 relative overflow-hidden bg-surface-container h-48 md:h-64 rounded-xl">
+              <img 
+                className="absolute inset-0 w-full h-full object-cover mix-blend-multiply opacity-20" 
+                src="https://images.unsplash.com/photo-1516937941344-00b4e0337589?auto=format&fit=crop&q=80&w=1000" 
+                alt="Ice blocks"
+                referrerPolicy="no-referrer"
+              />
+              <div className="absolute inset-0 flex items-center justify-center p-8">
+                <p className="text-primary text-2xl md:text-3xl font-bold text-center italic tracking-tight opacity-80">
+                  "Sierra Leone's most reliable cold chain."
+                </p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="bg-surface-container-low py-24">
-        <div className="max-w-7xl mx-auto px-8 text-center">
-          <h2 className="text-4xl font-black tracking-tighter text-primary mb-6">UNSHAKABLE RELIABILITY.</h2>
-          <p className="text-on-surface-variant max-w-xl mx-auto mb-10">From the coast to the heart of the city, Ice Me Incorporated ensures your temperature-sensitive assets remain pristine.</p>
+      {/* Unshakable Reliability Section */}
+      <section className="bg-surface-container-low py-24 w-full">
+        <div className="max-w-7xl mx-auto px-6 text-center">
+          <h2 className="text-4xl md:text-5xl font-black tracking-tighter text-primary mb-6 uppercase">
+            UNSHAKABLE RELIABILITY.
+          </h2>
+          <p className="text-on-surface-variant text-lg max-w-2xl mx-auto mb-10 font-medium">
+            From the coast to the heart of the city, Ice Me Incorporated ensures your temperature-sensitive assets remain pristine.
+          </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <button className="bg-secondary-container text-on-secondary-container px-10 py-4 rounded-md font-bold hover:opacity-80 transition-opacity">Call Dispatch</button>
-            <button className="bg-primary text-on-primary px-10 py-4 rounded-md font-bold hover:opacity-80 transition-opacity">View Fleet</button>
+            <button className="bg-[#cce9f5] text-primary px-10 py-4 rounded-md font-bold hover:opacity-80 transition-opacity">
+              Call Dispatch
+            </button>
+            <button className="bg-primary text-white px-10 py-4 rounded-md font-bold hover:opacity-80 transition-opacity">
+              View Fleet
+            </button>
           </div>
         </div>
       </section>

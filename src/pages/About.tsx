@@ -1,5 +1,6 @@
 import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
+import { ShieldCheck, Users, Star } from 'lucide-react';
 
 export default function About() {
   return (
@@ -80,21 +81,21 @@ export default function About() {
       <section className="py-32 bg-background">
         <div className="max-w-7xl mx-auto px-8">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
-            <div className="md:col-span-8 bg-primary rounded-xl p-12 text-on-primary flex flex-col justify-between arctic-gradient overflow-hidden relative">
+            <div className="md:col-span-8 bg-[#030515] rounded-xl p-12 text-white flex flex-col justify-between arctic-gradient overflow-hidden relative">
               <div className="z-10">
-                <div className="text-4xl mb-6 opacity-50">👁️</div>
-                <h3 className="text-4xl font-bold mb-6">Our Vision</h3>
-                <p className="text-2xl font-light leading-snug max-w-xl">
+                <div className="text-4xl mb-6 opacity-80">👁️</div>
+                <h3 className="text-4xl font-bold mb-6 text-white">Our Vision</h3>
+                <p className="text-2xl font-light leading-snug max-w-xl text-white/90">
                   To revolutionize the standard of cold-chain logistics in West Africa, fostering a future where food security and pharmaceutical safety are never compromised by temperature.
                 </p>
               </div>
               <div className="absolute right-0 bottom-0 opacity-10 pointer-events-none text-[300px]">❄️</div>
             </div>
 
-            <div className="md:col-span-4 bg-secondary-container rounded-xl p-12 text-on-secondary-container">
-              <div className="text-4xl mb-6 text-secondary">🚀</div>
-              <h3 className="text-2xl font-bold mb-4">The Mission</h3>
-              <p className="text-lg leading-relaxed">
+            <div className="md:col-span-4 bg-[#cce9f5] rounded-xl p-12 text-[#001a38]">
+              <div className="text-4xl mb-6">🚀</div>
+              <h3 className="text-2xl font-bold mb-4 text-[#001a38]">The Mission</h3>
+              <p className="text-lg leading-relaxed text-[#001a38]/80 font-medium">
                 Serving as the backbone of Sierra Leone's industry through absolute structural reliability and premium technological integration.
               </p>
             </div>
@@ -109,6 +110,55 @@ export default function About() {
                 <h4 className="font-bold text-primary mb-2">{val.title}</h4>
                 <p className="text-sm text-on-surface-variant">{val.desc}</p>
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Core Values Section */}
+      <section className="py-24 bg-surface-container-lowest">
+        <div className="max-w-7xl mx-auto px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-black tracking-tighter text-primary mb-4">Core Values</h2>
+            <p className="text-lg text-on-surface-variant max-w-2xl mx-auto">
+              The principles that navigate our operations across the Sierra Leonean coast.
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              { 
+                title: 'Reliability', 
+                icon: <ShieldCheck className="w-6 h-6 text-white" />, 
+                desc: 'Our infrastructure is designed for 24/7 uptime. We understand that in the cold chain, time is the only variable that matters.' 
+              },
+              { 
+                title: 'Community Focus', 
+                icon: <Users className="w-6 h-6 text-white" />, 
+                desc: 'We grow when our partners grow. Supporting local fishing communities is integrated into our business model.' 
+              },
+              { 
+                title: 'Excellence', 
+                icon: <Star className="w-6 h-6 text-white" />, 
+                desc: 'From the purity of our ice to the efficiency of our logistics, we accept nothing less than industry-leading standards.' 
+              }
+            ].map((value, index) => (
+              <motion.div
+                key={value.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="bg-surface-container-low p-10 rounded-xl flex flex-col items-start"
+              >
+                <div className="w-14 h-14 bg-[#030515] rounded-lg flex items-center justify-center mb-8">
+                  {value.icon}
+                </div>
+                <h3 className="text-2xl font-bold text-primary mb-4">{value.title}</h3>
+                <p className="text-on-surface-variant leading-relaxed">
+                  {value.desc}
+                </p>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -199,12 +249,43 @@ export default function About() {
         </div>
       </section>
 
-      {/* Join Section */}
-      <section className="py-32 bg-primary text-white text-center px-8">
-        <h2 className="text-5xl md:text-7xl font-black tracking-tighter mb-12">Ready to join the monolith?</h2>
-        <button className="bg-white text-primary px-12 py-5 rounded-md font-bold text-lg hover:bg-secondary-container transition-colors">
-          View Careers
-        </button>
+      {/* Impact Section */}
+      <section className="py-24 bg-surface-container-high relative overflow-hidden">
+        {/* Wave Pattern Decoration */}
+        <div className="absolute right-0 top-1/2 -translate-y-1/2 opacity-10 pointer-events-none hidden lg:block">
+          <svg width="400" height="300" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 50 Q 50 0, 100 50 T 200 50 T 300 50 T 400 50" stroke="currentColor" strokeWidth="20" fill="none" className="text-primary" />
+            <path d="M0 100 Q 50 50, 100 100 T 200 100 T 300 100 T 400 100" stroke="currentColor" strokeWidth="20" fill="none" className="text-primary" />
+            <path d="M0 150 Q 50 100, 100 150 T 200 150 T 300 150 T 400 150" stroke="currentColor" strokeWidth="20" fill="none" className="text-primary" />
+            <path d="M0 200 Q 50 150, 100 200 T 200 200 T 300 200 T 400 200" stroke="currentColor" strokeWidth="20" fill="none" className="text-primary" />
+          </svg>
+        </div>
+
+        <div className="max-w-7xl mx-auto px-8 relative z-10">
+          <div className="max-w-3xl">
+            <h2 className="text-5xl md:text-6xl font-black tracking-tighter text-primary mb-8 leading-tight">
+              Impacting lives beyond the ice block.
+            </h2>
+            <p className="text-xl text-on-surface-variant leading-relaxed mb-16 max-w-2xl">
+              We are proud to be a lifeline for the Western Area's maritime economy, currently supporting over <span className="font-bold text-primary border-b-4 border-primary pb-1">500 fishing boats</span> through reliable supply and logistical support.
+            </p>
+            
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-12">
+              <div>
+                <p className="text-5xl font-black text-primary mb-2 tracking-tighter">500+</p>
+                <p className="text-xs font-bold uppercase tracking-[0.2em] text-on-surface-variant">Boats Supported</p>
+              </div>
+              <div>
+                <p className="text-5xl font-black text-primary mb-2 tracking-tighter">15+</p>
+                <p className="text-xs font-bold uppercase tracking-[0.2em] text-on-surface-variant">Coastal Hubs</p>
+              </div>
+              <div>
+                <p className="text-5xl font-black text-primary mb-2 tracking-tighter">100%</p>
+                <p className="text-xs font-bold uppercase tracking-[0.2em] text-on-surface-variant">Local Sourcing</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
     </div>
   );

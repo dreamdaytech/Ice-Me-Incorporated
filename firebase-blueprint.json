@@ -1,0 +1,54 @@
+{
+  "entities": {
+    "BlogPost": {
+      "title": "BlogPost",
+      "description": "A blog article published on the website.",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string", "description": "The title of the blog post." },
+        "excerpt": { "type": "string", "description": "A short summary of the post." },
+        "content": { "type": "string", "description": "The full HTML/Markdown content of the post." },
+        "category": { "type": "string", "description": "The category of the post (e.g., Logistics, Technology)." },
+        "date": { "type": "string", "format": "date-time", "description": "The publication date." },
+        "readTime": { "type": "string", "description": "Estimated reading time (e.g., '5 min read')." },
+        "image": { "type": "string", "description": "URL of the featured image." },
+        "author": {
+          "type": "object",
+          "properties": {
+            "name": { "type": "string" },
+            "role": { "type": "string" },
+            "avatar": { "type": "string" }
+          },
+          "required": ["name", "role", "avatar"]
+        },
+        "authorUid": { "type": "string", "description": "The UID of the user who created the post." },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["title", "excerpt", "content", "category", "date", "readTime", "image", "author", "authorUid", "createdAt", "updatedAt"]
+    },
+    "User": {
+      "title": "User",
+      "description": "A user of the application.",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "email": { "type": "string" },
+        "displayName": { "type": "string" },
+        "photoURL": { "type": "string" },
+        "role": { "type": "string", "enum": ["admin", "editor", "user"] }
+      },
+      "required": ["uid", "email", "role"]
+    }
+  },
+  "firestore": {
+    "/blogPosts/{postId}": {
+      "schema": "BlogPost",
+      "description": "Collection of blog articles."
+    },
+    "/users/{userId}": {
+      "schema": "User",
+      "description": "User profiles and roles."
+    }
+  }
+}

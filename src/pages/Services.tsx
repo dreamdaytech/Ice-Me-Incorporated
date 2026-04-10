@@ -1,4 +1,5 @@
 import { motion } from 'motion/react';
+import { ShieldCheck, Zap, Globe, Cpu, Clock, CheckCircle2 } from 'lucide-react';
 
 export default function Services() {
   return (
@@ -56,7 +57,7 @@ export default function Services() {
             <ul className="space-y-4">
               {['Bulk delivery directly to port-side vessels', 'Specially formulated for slow-melt endurance'].map((li) => (
                 <li key={li} className="flex items-start gap-3">
-                  <span className="text-primary">✓</span>
+                  <CheckCircle2 className="w-5 h-5 text-primary shrink-0" />
                   <span className="text-on-surface font-medium">{li}</span>
                 </li>
               ))}
@@ -117,11 +118,11 @@ export default function Services() {
               </p>
               <div className="space-y-6">
                 {[
-                  { icon: '🛡️', title: '24/7 Monitoring', desc: 'Real-time temperature tracking and redundancy systems.' },
-                  { icon: '📦', title: 'High Capacity', desc: 'Managed 250MT storage with palletized accessibility.' }
+                  { icon: <ShieldCheck className="w-8 h-8" />, title: '24/7 Monitoring', desc: 'Real-time temperature tracking and redundancy systems.' },
+                  { icon: <Cpu className="w-8 h-8" />, title: 'High Capacity', desc: 'Managed 250MT storage with palletized accessibility.' }
                 ].map((item) => (
                   <div key={item.title} className="flex items-center gap-6">
-                    <div className="w-16 h-16 rounded-full bg-primary flex items-center justify-center text-white shrink-0 text-2xl">
+                    <div className="w-16 h-16 rounded-full bg-primary flex items-center justify-center text-white shrink-0">
                       {item.icon}
                     </div>
                     <div>
@@ -180,6 +181,58 @@ export default function Services() {
                 <h3 className="text-xl font-bold text-primary mb-2">Agile Tricycles</h3>
                 <p className="text-on-surface-variant">Custom-built cold-box tricycles for rapid urban delivery and navigating tight community markets.</p>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Why Choose Us Section */}
+        <section className="py-24 bg-surface-container-lowest rounded-3xl border border-outline-variant/20">
+          <div className="max-w-5xl mx-auto px-8">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-black text-primary tracking-tighter mb-4">Why Choose Us</h2>
+              <p className="text-on-surface-variant text-lg">The Ice Me Inc. advantage in cold chain excellence.</p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+              {[
+                {
+                  icon: <Clock className="w-8 h-8 text-primary" />,
+                  title: "24/7 Operations",
+                  desc: "Our facility never sleeps, ensuring ice is available when the tide turns or the party starts. We operate around the clock to meet your urgent needs."
+                },
+                {
+                  icon: <Zap className="w-8 h-8 text-primary" />,
+                  title: "N+1 Redundancy",
+                  desc: "Multiple cooling systems and industrial-grade backup power ensure your goods stay frozen, even during national grid outages."
+                },
+                {
+                  icon: <Globe className="w-8 h-8 text-primary" />,
+                  title: "Local Expertise",
+                  desc: "Deeply rooted in Sierra Leone, we understand the unique logistical challenges of Freetown's maritime and urban landscapes."
+                },
+                {
+                  icon: <ShieldCheck className="w-8 h-8 text-primary" />,
+                  title: "Certified Purity",
+                  desc: "Every block and cube is produced using triple-filtered water, meeting international food safety standards for your peace of mind."
+                }
+              ].map((benefit, i) => (
+                <motion.div
+                  key={benefit.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1 }}
+                  className="flex gap-6"
+                >
+                  <div className="w-16 h-16 rounded-2xl bg-surface-container-high flex items-center justify-center shrink-0">
+                    {benefit.icon}
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-primary mb-2">{benefit.title}</h3>
+                    <p className="text-on-surface-variant leading-relaxed">{benefit.desc}</p>
+                  </div>
+                </motion.div>
+              ))}
             </div>
           </div>
         </section>

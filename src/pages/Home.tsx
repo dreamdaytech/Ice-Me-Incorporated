@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { PlayCircle } from 'lucide-react';
+import { PlayCircle, Clock, Zap, Globe, ShieldCheck } from 'lucide-react';
 
 export default function Home() {
   return (
@@ -81,6 +81,80 @@ export default function Home() {
               <span className="text-sm font-bold uppercase tracking-widest text-secondary">Cold Storage Capacity</span>
             </div>
           </motion.div>
+        </div>
+      </section>
+
+      {/* Supply Chain Section */}
+      <section className="bg-surface py-24 px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <motion.h2 
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="text-4xl md:text-5xl font-black text-primary tracking-tight leading-tight"
+            >
+              Keeping the nation's supply chain running smoothly.
+            </motion.h2>
+            <motion.p 
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="text-xl md:text-2xl text-on-surface-variant leading-relaxed italic border-l-4 border-primary pl-8"
+            >
+              "From artisanal fishing boats to Freetown's top hotels, we provide the cooling foundation for Sierra Leone's commerce."
+            </motion.p>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Us Section */}
+      <section className="py-24 bg-surface-container-lowest">
+        <div className="max-w-7xl mx-auto px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-black text-primary tracking-tighter mb-4">Why Choose Us</h2>
+            <p className="text-on-surface-variant text-lg">The Ice Me Inc. advantage in cold chain excellence.</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[
+              {
+                icon: <Clock className="w-8 h-8 text-primary" />,
+                title: "24/7 Operations",
+                desc: "Our facility never sleeps, ensuring ice is available when the tide turns."
+              },
+              {
+                icon: <Zap className="w-8 h-8 text-primary" />,
+                title: "N+1 Redundancy",
+                desc: "Multiple cooling systems and backup power ensure your goods stay frozen."
+              },
+              {
+                icon: <Globe className="w-8 h-8 text-primary" />,
+                title: "Local Expertise",
+                desc: "Deeply rooted in Sierra Leone, we understand the unique logistical challenges."
+              },
+              {
+                icon: <ShieldCheck className="w-8 h-8 text-primary" />,
+                title: "Certified Purity",
+                desc: "Produced using triple-filtered water, meeting international food safety standards."
+              }
+            ].map((benefit, i) => (
+              <motion.div
+                key={benefit.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="bg-surface-container-low p-8 rounded-2xl border border-outline-variant/10 flex flex-col items-center text-center"
+              >
+                <div className="w-16 h-16 rounded-2xl bg-surface-container-high flex items-center justify-center mb-6">
+                  {benefit.icon}
+                </div>
+                <h3 className="text-xl font-bold text-primary mb-3">{benefit.title}</h3>
+                <p className="text-on-surface-variant text-sm leading-relaxed">{benefit.desc}</p>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -170,14 +244,16 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-32 bg-background flex flex-col items-center justify-center text-center px-8">
-        <h2 className="text-5xl md:text-7xl font-black text-primary mb-12 tracking-tighter">Ready to secure your supply?</h2>
-        <div className="flex flex-col sm:flex-row gap-6">
-          <button className="bg-primary text-on-primary px-12 py-5 rounded-md font-bold text-lg arctic-gradient shadow-xl hover:scale-105 transition-transform">
-            Get a Custom Quote
-          </button>
-          <button className="bg-white text-primary border border-primary px-12 py-5 rounded-md font-bold text-lg hover:bg-primary hover:text-white transition-all">
-            Contact Our Team
+      <section className="py-32 px-8 bg-surface">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-4xl md:text-6xl font-black text-primary mb-8 tracking-tight">
+            Need reliable ice delivery or cold storage?
+          </h2>
+          <p className="text-on-surface-variant text-xl mb-12 max-w-2xl mx-auto font-medium">
+            Contact our logistics team today for industrial volume pricing or long-term storage lease options.
+          </p>
+          <button className="bg-primary text-on-primary px-12 py-5 rounded-md font-black text-lg hover:scale-[1.02] active:scale-[0.98] transition-all shadow-xl arctic-gradient">
+            Get in Touch
           </button>
         </div>
       </section>
