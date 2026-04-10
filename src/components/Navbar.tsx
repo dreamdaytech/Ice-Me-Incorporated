@@ -2,13 +2,20 @@ import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { cn } from '@/src/lib/utils';
 import { motion, AnimatePresence } from 'motion/react';
-import { Menu, X, Sun, Moon } from 'lucide-react';
+import { Menu, X, Sun, Moon, ChevronDown } from 'lucide-react';
 
 const navLinks = [
   { name: 'Home', href: '/' },
-  { name: 'About Us', href: '/about' },
+  { 
+    name: 'About Us', 
+    href: '/about',
+    submenu: [
+      { name: 'Company Overview', href: '/about' },
+      { name: 'Our Team', href: '/team' },
+    ]
+  },
   { name: 'Services', href: '/services' },
-  { name: 'Our Team', href: '/team' },
+  { name: 'Gallery', href: '/gallery' },
   { name: 'Blog', href: '/blog' },
   { name: 'Contact', href: '/contact' },
 ];
@@ -63,7 +70,42 @@ export default function Navbar() {
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-8 font-bold tracking-tight">
           {navLinks.map((link) => {
-            const isActive = location.pathname === link.href;
+            const isActive = location.pathname === link.href || 
+              (link.submenu?.some(sub => location.pathname === sub.href));
+            
+            if (link.submenu) {
+              return (
+                <div key={link.name} className="relative group py-2">
+                  <button
+                    className={cn(
+                      "flex items-center gap-1 transition-colors pb-1 border-b-2",
+                      isActive 
+                        ? "text-primary border-primary" 
+                        : "text-on-surface-variant border-transparent hover:text-primary"
+                    )}
+                  >
+                    {link.name}
+                    <ChevronDown className="w-4 h-4 transition-transform group-hover:rotate-180" />
+                  </button>
+                  
+                  <div className="absolute top-full left-0 mt-2 w-48 bg-white dark:bg-surface border border-outline-variant/20 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-[60] overflow-hidden">
+                    {link.submenu.map((sub) => (
+                      <Link
+                        key={sub.name}
+                        to={sub.href}
+                        className={cn(
+                          "block px-6 py-3 text-sm hover:bg-surface-container-high transition-colors",
+                          location.pathname === sub.href ? "text-primary font-black" : "text-on-surface-variant"
+                        )}
+                      >
+                        {sub.name}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              );
+            }
+
             return (
               <Link
                 key={link.name}
@@ -123,15 +165,18 @@ export default function Navbar() {
             transition={{ duration: 0.2 }}
             className="absolute top-0 left-0 w-full h-screen bg-background flex flex-col pt-24 px-6 pb-8 md:hidden shadow-2xl"
           >
-            <div className="flex flex-col space-y-6 text-center flex-grow">
+            <div className="flex flex-col space-y-4 text-center flex-grow overflow-y-auto pt-4">
               {navLinks.map((link, i) => {
-                const isActive = location.pathname === link.href;
+                const isActive = location.pathname === link.href || 
+                  (link.submenu?.some(sub => location.pathname === sub.href));
+                
                 return (
                   <motion.div
                     key={link.name}
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: i * 0.05 + 0.1 }}
+                    className="flex flex-col items-center"
                   >
                     <Link
                       to={link.href}
@@ -142,6 +187,23 @@ export default function Navbar() {
                     >
                       {link.name}
                     </Link>
+                    
+                    {link.submenu && (
+                      <div className="flex flex-col gap-3 mt-4 mb-2">
+                        {link.submenu.map((sub) => (
+                          <Link
+                            key={sub.name}
+                            to={sub.href}
+                            className={cn(
+                              "text-lg font-bold tracking-tight transition-colors",
+                              location.pathname === sub.href ? "text-primary" : "text-on-surface-variant/60"
+                            )}
+                          >
+                            {sub.name}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
                   </motion.div>
                 );
               })}

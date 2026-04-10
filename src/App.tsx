@@ -11,6 +11,7 @@ import Contact from './pages/Contact';
 import Blog from './pages/Blog';
 import BlogPost from './pages/BlogPost';
 import BlogAdmin from './pages/BlogAdmin';
+import GalleryPage from './pages/GalleryPage';
 import { AuthProvider } from './contexts/AuthContext';
 
 function ScrollToTop() {
@@ -41,6 +42,7 @@ export default function App() {
                 <Route path="/blog" element={<Blog />} />
                 <Route path="/blog/:id" element={<BlogPost />} />
                 <Route path="/blog/admin" element={<BlogAdmin />} />
+                <Route path="/gallery" element={<GalleryPage />} />
               </Routes>
             </main>
             <Footer />
