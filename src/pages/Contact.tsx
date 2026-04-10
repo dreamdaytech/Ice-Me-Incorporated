@@ -1,9 +1,14 @@
 import { motion } from 'motion/react';
 import { Mail, Phone, MapPin, ArrowRight, Map as MapIcon } from 'lucide-react';
+import SEO from '../components/SEO';
 
 export default function Contact() {
   return (
     <div className="min-h-screen flex flex-col w-full bg-surface">
+      <SEO 
+        title="Contact Us" 
+        description="Get in touch with Ice Me Inc. for reliable ice delivery, cold storage inquiries, or logistics partnerships in Sierra Leone."
+      />
       {/* Contact Header */}
       <section className="px-6 py-16 md:py-24 max-w-7xl mx-auto w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end">

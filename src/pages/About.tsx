@@ -1,10 +1,15 @@
 import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
 import { ShieldCheck, Users, Star } from 'lucide-react';
+import SEO from '../components/SEO';
 
 export default function About() {
   return (
     <div className="flex flex-col w-full">
+      <SEO 
+        title="About Us" 
+        description="Learn about Ice Me Inc.'s history, mission, and vision to revolutionize cold-chain logistics in Sierra Leone."
+      />
       {/* Hero Section */}
       <section className="relative min-h-[70vh] flex items-center pt-20 pb-32 overflow-hidden">
         <div className="max-w-7xl mx-auto px-8 w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">

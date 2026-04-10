@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { Calendar, Clock, ArrowRight } from 'lucide-react';
 import { collection, onSnapshot, query, orderBy } from 'firebase/firestore';
 import { db, handleFirestoreError, OperationType } from '../lib/firebase';
+import SEO from '../components/SEO';
 
 interface BlogPost {
   id: string;
@@ -38,6 +39,10 @@ export default function Blog() {
 
   return (
     <div className="flex flex-col w-full min-h-screen bg-background">
+      <SEO 
+        title="Blog" 
+        description="Read the latest insights, updates, and stories from Ice Me Inc. about cold-chain innovation and community impact in Sierra Leone."
+      />
       {/* Hero Section */}
       <section className="relative py-24 md:py-32 overflow-hidden border-b border-outline-variant/20">
         <div className="max-w-7xl mx-auto px-6 md:px-8 relative z-10">

@@ -4,6 +4,7 @@ import { motion } from 'motion/react';
 import { Calendar, Clock, ArrowLeft, Share2, Twitter, Linkedin, Facebook } from 'lucide-react';
 import { doc, getDoc, collection, query, orderBy, limit, getDocs } from 'firebase/firestore';
 import { db, handleFirestoreError, OperationType } from '../lib/firebase';
+import SEO from '../components/SEO';
 
 interface BlogPost {
   id: string;
@@ -78,6 +79,12 @@ export default function BlogPost() {
 
   return (
     <div className="flex flex-col w-full min-h-screen bg-background">
+      <SEO 
+        title={post.title} 
+        description={post.excerpt} 
+        image={post.image}
+        type="article"
+      />
       {/* Article Header */}
       <header className="relative pt-24 pb-16 md:pt-32 md:pb-24 overflow-hidden">
         <div className="max-w-4xl mx-auto px-6 md:px-8 relative z-10">

@@ -1,9 +1,14 @@
 import { motion } from 'motion/react';
 import { ShieldCheck, Zap, Globe, Cpu, Clock, CheckCircle2 } from 'lucide-react';
+import SEO from '../components/SEO';
 
 export default function Services() {
   return (
     <div className="flex flex-col w-full">
+      <SEO 
+        title="Services" 
+        description="Explore Ice Me Inc.'s services, including industrial crushed ice for fisheries, premium cube ice for hospitality, and 250MT cold storage solutions."
+      />
       {/* Hero Section */}
       <section className="relative min-h-[60vh] flex items-center overflow-hidden bg-primary">
         <div className="absolute inset-0 opacity-40">

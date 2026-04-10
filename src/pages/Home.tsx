@@ -1,9 +1,14 @@
 import { motion } from 'motion/react';
 import { PlayCircle, Clock, Zap, Globe, ShieldCheck } from 'lucide-react';
+import SEO from '../components/SEO';
 
 export default function Home() {
   return (
     <div className="flex flex-col w-full">
+      <SEO 
+        title="Home" 
+        description="Ice Me Incorporated is Sierra Leone's premier cold chain backbone, providing industrial ice and storage solutions that power Freetown's industry and hospitality."
+      />
       {/* Hero Section */}
       <section className="relative w-full min-h-[90vh] flex items-center overflow-hidden bg-background">
         <div className="absolute inset-0 z-0">

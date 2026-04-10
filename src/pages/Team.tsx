@@ -1,9 +1,14 @@
 import { motion } from 'motion/react';
 import { ShieldCheck } from 'lucide-react';
+import SEO from '../components/SEO';
 
 export default function Team() {
   return (
     <div className="flex flex-col w-full">
+      <SEO 
+        title="Our Team" 
+        description="Meet the dedicated team of architects and specialists behind Sierra Leone's premier cold chain infrastructure at Ice Me Inc."
+      />
       {/* Hero Section */}
       <section className="relative pt-32 pb-24 px-8 overflow-hidden bg-background">
         <div className="max-w-7xl mx-auto">
