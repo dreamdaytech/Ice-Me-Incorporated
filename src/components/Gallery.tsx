@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { X, ChevronLeft, ChevronRight, Maximize2 } from 'lucide-react';
+import { cn } from '../lib/utils';
 
 interface GalleryImage {
   id: string;
@@ -83,6 +84,11 @@ const categories = ['all', 'operations', 'facilities', 'logistics', 'community']
 export default function Gallery() {
   const [filter, setFilter] = useState('all');
   const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
+  const [loadedImages, setLoadedImages] = useState<Record<string, boolean>>({});
+
+  const handleImageLoad = (id: string) => {
+    setLoadedImages(prev => ({ ...prev, [id]: true }));
+  };
 
   const filteredImages = filter === 'all' 
     ? images 
@@ -157,7 +163,13 @@ export default function Gallery() {
                 <img 
                   src={image.src} 
                   alt={image.alt} 
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  loading="lazy"
+                  decoding="async"
+                  onLoad={() => handleImageLoad(image.id)}
+                  className={cn(
+                    "w-full h-full object-cover transition-all duration-700 group-hover:scale-110",
+                    loadedImages[image.id] ? "opacity-100 scale-100 blur-0" : "opacity-0 scale-105 blur-lg"
+                  )}
                   referrerPolicy="no-referrer"
                 />
                 <div className="absolute inset-0 bg-primary/60 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-6">
@@ -210,11 +222,16 @@ export default function Gallery() {
               className="relative max-w-5xl w-full h-full flex flex-col items-center justify-center gap-8"
               onClick={(e) => e.stopPropagation()}
             >
-              <div className="relative w-full h-full max-h-[70vh] rounded-xl overflow-hidden">
+              <div className="relative w-full h-full max-h-[70vh] rounded-xl overflow-hidden bg-white/5">
                 <img 
                   src={filteredImages[selectedImageIndex].src} 
                   alt={filteredImages[selectedImageIndex].alt} 
-                  className="w-full h-full object-contain"
+                  decoding="async"
+                  onLoad={() => handleImageLoad(`lightbox-${filteredImages[selectedImageIndex].id}`)}
+                  className={cn(
+                    "w-full h-full object-contain transition-all duration-500",
+                    loadedImages[`lightbox-${filteredImages[selectedImageIndex].id}`] ? "opacity-100 scale-100 blur-0" : "opacity-0 scale-95 blur-md"
+                  )}
                   referrerPolicy="no-referrer"
                 />
               </div>
