@@ -1,5 +1,5 @@
 import { Link, useLocation } from 'react-router-dom';
-import { Award, Globe } from 'lucide-react';
+import { Facebook, Instagram, Linkedin, Youtube, MessageCircle } from 'lucide-react';
 import { cn } from '@/src/lib/utils';
 
 export default function Footer() {
@@ -12,11 +12,10 @@ export default function Footer() {
     { name: 'Gallery', href: '/gallery' },
     { name: 'Blog', href: '/blog' },
     { name: 'Contact', href: '/contact' },
-    { name: 'Privacy Policy', href: '/privacy' },
   ];
 
   return (
-    <footer className="bg-[#1a1e2f] text-[#f9f9f9] flex flex-col p-12 md:p-16 w-full border-t border-white/5 font-sans">
+    <footer className="bg-[#001A38] text-[#f9f9f9] flex flex-col p-12 md:p-16 w-full border-t border-white/5 font-sans">
       <div className="max-w-7xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-16">
         {/* Brand Section */}
         <div>
@@ -55,21 +54,30 @@ export default function Footer() {
           <div className="space-y-3 text-slate-300 text-base">
             <p className="font-medium">14 Lumley Beach Road</p>
             <p className="font-medium">Freetown, Sierra Leone</p>
-            <p className="pt-4 font-black text-xl text-white tracking-tight">+232 77 612 425</p>
-            <p className="text-sm opacity-50 font-medium">info@iceme.com</p>
+            <p className="pt-4 font-black text-xl text-white tracking-tight">+232 76 612425</p>
+            <p className="text-sm opacity-50 font-medium">info@icemesl.com</p>
           </div>
         </div>
 
         {/* Connect Section */}
         <div>
           <h4 className="font-bold text-sm uppercase tracking-[0.2em] mb-8 text-white/40">Connect</h4>
-          <div className="flex gap-5">
-            <button className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center text-slate-300 hover:text-white hover:bg-white/10 transition-all border border-white/10">
-              <Award className="w-6 h-6" />
-            </button>
-            <button className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center text-slate-300 hover:text-white hover:bg-white/10 transition-all border border-white/10">
-              <Globe className="w-6 h-6" />
-            </button>
+          <div className="flex gap-4 flex-wrap">
+            <a href="#" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center text-slate-300 hover:text-white hover:bg-white/10 transition-all border border-white/10">
+              <Facebook className="w-5 h-5" />
+            </a>
+            <a href="#" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center text-slate-300 hover:text-white hover:bg-white/10 transition-all border border-white/10">
+              <Instagram className="w-5 h-5" />
+            </a>
+            <a href="#" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center text-slate-300 hover:text-white hover:bg-white/10 transition-all border border-white/10">
+              <Linkedin className="w-5 h-5" />
+            </a>
+            <a href="#" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center text-slate-300 hover:text-white hover:bg-white/10 transition-all border border-white/10">
+              <MessageCircle className="w-5 h-5" />
+            </a>
+            <a href="https://www.youtube.com/watch?v=gr7sfKNraQk" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center text-slate-300 hover:text-white hover:bg-white/10 transition-all border border-white/10">
+              <Youtube className="w-5 h-5" />
+            </a>
           </div>
         </div>
       </div>

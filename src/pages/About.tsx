@@ -11,18 +11,18 @@ export default function About() {
         description="Learn about Ice Me Inc.'s history, mission, and vision to revolutionize cold-chain logistics in Sierra Leone."
       />
       {/* Hero Section */}
-      <section className="relative min-h-[70vh] flex items-center pt-20 pb-32 overflow-hidden">
-        <div className="max-w-7xl mx-auto px-8 w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <section className="relative min-h-[60vh] sm:min-h-[70vh] flex items-center pt-16 sm:pt-20 pb-20 sm:pb-32 overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 items-center">
           <motion.div 
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
-            className="lg:col-span-7 z-10"
+            className="lg:col-span-7 z-10 text-center sm:text-left"
           >
-            <span className="text-xs font-bold tracking-[0.2em] text-primary uppercase mb-6 block">Established 2021</span>
-            <h1 className="text-display-md text-primary mb-8">
+            <span className="text-[10px] sm:text-xs font-bold tracking-[0.2em] text-primary uppercase mb-4 sm:mb-6 block">Established 2021</span>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-display-md font-black text-primary mb-6 sm:mb-8 leading-tight">
               Preserving <br/><span className="text-on-primary-container">the Core.</span>
             </h1>
-            <p className="text-xl text-on-surface-variant max-w-xl leading-relaxed">
+            <p className="text-base sm:text-xl text-on-surface-variant max-w-xl leading-relaxed">
               From a singular vision in Freetown to Sierra Leone's premier cold chain management enterprise. We don't just move goods; we sustain life.
             </p>
           </motion.div>
@@ -32,17 +32,16 @@ export default function About() {
             animate={{ opacity: 1, scale: 1 }}
             className="lg:col-span-5 relative"
           >
-            <div className="aspect-[4/5] rounded-xl overflow-hidden shadow-2xl">
-              <img 
-                src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&q=80&w=1000" 
-                alt="Industrial facility" 
+            <div className="aspect-[4/5] sm:aspect-[4/5] rounded-xl overflow-hidden shadow-2xl">
+              <img
+                src="/images/Industrial facility.jpg"
+                alt="Industrial facility"
                 className="w-full h-full object-cover"
-                referrerPolicy="no-referrer"
               />
             </div>
-            <div className="absolute -bottom-10 -left-10 bg-white p-8 rounded-xl shadow-xl max-w-xs hidden md:block">
-              <p className="text-sm font-bold text-primary italic">"Our mission is simple: To be the backbone of Sierra Leone’s cold chain industry."</p>
-              <p className="mt-4 text-xs tracking-widest uppercase font-bold text-on-surface-variant">— Marie Garber, Founder</p>
+            <div className="absolute -bottom-6 -left-4 sm:-bottom-10 sm:-left-10 bg-white p-4 sm:p-8 rounded-xl shadow-xl max-w-[200px] sm:max-w-xs hidden sm:block">
+              <p className="text-xs sm:text-sm font-bold text-primary italic">"Our mission is simple: To be the backbone of Sierra Leone's cold chain industry."</p>
+              <p className="mt-2 sm:mt-4 text-[10px] sm:text-xs tracking-widest uppercase font-bold text-on-surface-variant">— Marie Garber, Founder</p>
             </div>
           </motion.div>
         </div>
@@ -86,23 +85,23 @@ export default function About() {
       <section className="py-32 bg-background">
         <div className="max-w-7xl mx-auto px-8">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
-            <div className="md:col-span-8 bg-[#030515] rounded-xl p-12 text-white flex flex-col justify-between arctic-gradient overflow-hidden relative">
+            <div className="md:col-span-8 bg-[#cce9f5] rounded-xl p-12 text-[#001a38] flex flex-col justify-between overflow-hidden relative">
               <div className="z-10">
-                <div className="text-4xl mb-6 opacity-80">👁️</div>
-                <h3 className="text-4xl font-bold mb-6 text-white">Our Vision</h3>
-                <p className="text-2xl font-light leading-snug max-w-xl text-white/90">
-                  To revolutionize the standard of cold-chain logistics in West Africa, fostering a future where food security and pharmaceutical safety are never compromised by temperature.
+                <div className="text-4xl mb-6">�</div>
+                <h3 className="text-4xl font-bold mb-6 text-[#001a38]">The Mission</h3>
+                <p className="text-2xl font-light leading-snug max-w-xl text-[#001a38]/90">
+                  To deliver premium marine and fishery products through environmentally responsible and sustainable practices, while providing reliable and high-quality ice solutions—including crushed ice for the fishing industry and cube ice for hotels, restaurants, and households. We are further committed to offering modern cold room storage facilities to support the safe preservation, storage, and export of smoked fish and other essential food products. Through these integrated services, we aim to preserve product quality, enhance supply chain efficiency, and consistently exceed customer expectations through excellence and innovation.
                 </p>
               </div>
-              <div className="absolute right-0 bottom-0 opacity-10 pointer-events-none text-[300px]">❄️</div>
             </div>
 
-            <div className="md:col-span-4 bg-[#cce9f5] rounded-xl p-12 text-[#001a38]">
-              <div className="text-4xl mb-6">🚀</div>
-              <h3 className="text-2xl font-bold mb-4 text-[#001a38]">The Mission</h3>
-              <p className="text-lg leading-relaxed text-[#001a38]/80 font-medium">
-                Serving as the backbone of Sierra Leone's industry through absolute structural reliability and premium technological integration.
+            <div className="md:col-span-4 bg-[#030515] rounded-xl p-12 text-white arctic-gradient relative">
+              <div className="text-4xl mb-6 opacity-80">�️</div>
+              <h3 className="text-2xl font-bold mb-4 text-white">Our Vision</h3>
+              <p className="text-lg leading-relaxed text-white/80 font-medium">
+                To be the backbone of Sierra Leone's cold chain industry, driving economic growth by ensuring zero product loss through superior preservation and logistics.
               </p>
+              <div className="absolute right-0 bottom-0 opacity-10 pointer-events-none text-[200px]">❄️</div>
             </div>
 
             {[
@@ -133,19 +132,19 @@ export default function About() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               { 
-                title: 'Reliability', 
+                title: 'Absolute Reliability', 
                 icon: <ShieldCheck className="w-6 h-6 text-white" />, 
-                desc: 'Our infrastructure is designed for 24/7 uptime. We understand that in the cold chain, time is the only variable that matters.' 
+                desc: `We ensure a consistent supply of ice and cold storage because we know that our clients' livelihoods depend on us.` 
               },
               { 
                 title: 'Community Focus', 
                 icon: <Users className="w-6 h-6 text-white" />, 
-                desc: 'We grow when our partners grow. Supporting local fishing communities is integrated into our business model.' 
+                desc: 'We are proud to support the local fishing communities around the Western Area in Freetown and are always looking to expand and grow.' 
               },
               { 
                 title: 'Excellence', 
                 icon: <Star className="w-6 h-6 text-white" />, 
-                desc: 'From the purity of our ice to the efficiency of our logistics, we accept nothing less than industry-leading standards.' 
+                desc: 'From our round-the-clock operations to our fleet of delivery vehicles, we strive for operational perfection.' 
               }
             ].map((value, index) => (
               <motion.div
@@ -179,11 +178,10 @@ export default function About() {
             className="relative"
           >
             <div className="w-full aspect-square bg-surface-container-highest rounded-full absolute -top-12 -left-12 opacity-50"></div>
-            <img 
-              src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=1000" 
-              alt="Marie Garber" 
-              className="w-full h-auto rounded-xl shadow-2xl relative z-10 grayscale hover:grayscale-0 transition-all duration-700"
-              referrerPolicy="no-referrer"
+            <img
+              src="/images/Marie Garber - Founder & CEO.jpg"
+              alt="Marie Garber"
+              className="w-full h-auto rounded-xl shadow-2xl relative z-10 transition-all duration-700"
             />
           </motion.div>
           <div className="space-y-8">
@@ -225,10 +223,10 @@ export default function About() {
           
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
-              { name: 'Alusine Bangura', role: 'Head of Operations', img: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=400' },
-              { name: 'Sahr Mattia', role: 'Logistics Coordinator', img: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=400' },
-              { name: 'Fatmata Koroma', role: 'Finance Director', img: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=400' },
-              { name: 'Ibrahim Sesay', role: 'Fleet Manager', img: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=400' }
+              { name: 'Yusufu Mansaray', role: 'Production Supervisor', img: '/images/Agile Tricycles.jpg' },
+              { name: 'Fatmata Bundeh', role: 'Production Supervisor', img: '/images/Agile Tricycles.jpg' },
+              { name: 'Kamanda Berlin Kamara', role: 'Electrician', img: '/images/Agile Tricycles.jpg' },
+              { name: 'Mohamed Bangura', role: 'Engineer', img: '/images/Agile Tricycles.jpg' }
             ].map((member) => (
               <motion.div 
                 key={member.name}
@@ -238,11 +236,10 @@ export default function About() {
                 className="group"
               >
                 <div className="aspect-[3/4] rounded-xl overflow-hidden mb-6 bg-surface-container-high relative">
-                  <img 
-                    src={member.img} 
-                    alt={member.name} 
-                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
-                    referrerPolicy="no-referrer"
+                  <img
+                    src={member.img}
+                    alt={member.name}
+                    className="w-full h-full object-cover transition-all duration-500"
                   />
                   <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                 </div>

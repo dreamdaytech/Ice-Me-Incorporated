@@ -10,16 +10,16 @@ export default function Contact() {
         description="Get in touch with Ice Me Inc. for reliable ice delivery, cold storage inquiries, or logistics partnerships in Sierra Leone."
       />
       {/* Contact Header */}
-      <section className="px-6 py-16 md:py-24 max-w-7xl mx-auto w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end">
+      <section className="px-4 sm:px-6 py-12 sm:py-16 lg:py-24 max-w-7xl mx-auto w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 items-end">
           <div className="lg:col-span-8">
-            <span className="text-xs font-bold tracking-[0.05em] uppercase text-on-surface-variant mb-4 block">Connect with our cold chain</span>
-            <h1 className="text-6xl md:text-8xl font-black tracking-tighter text-primary leading-[0.9]">
+            <span className="text-[10px] sm:text-xs font-bold tracking-[0.05em] uppercase text-on-surface-variant mb-3 sm:mb-4 block">Connect with our cold chain</span>
+            <h1 className="text-4xl sm:text-6xl md:text-8xl font-black tracking-tighter text-primary leading-[0.9]">
               CHILL<br/>CONNECT.
             </h1>
           </div>
           <div className="lg:col-span-4 pb-2">
-            <p className="text-on-surface-variant text-lg leading-relaxed">
+            <p className="text-on-surface-variant text-base sm:text-lg leading-relaxed">
               The Monolith of Cold Logistics in Sierra Leone. Reach out to our frozen infrastructure experts today.
             </p>
           </div>
@@ -27,29 +27,29 @@ export default function Contact() {
       </section>
 
       {/* Main Content Grid */}
-      <section className="px-6 pb-24 max-w-7xl mx-auto w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+      <section className="px-4 sm:px-6 pb-16 sm:pb-24 max-w-7xl mx-auto w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8">
           {/* Contact Information & Map */}
-          <div className="lg:col-span-5 space-y-8">
+          <div className="lg:col-span-5 space-y-6 sm:space-y-8">
             {/* Information Cards */}
-            <div className="bg-surface-container-low p-8 space-y-8 rounded-xl">
-              <div className="space-y-8">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-primary flex items-center justify-center text-on-primary shrink-0 rounded-lg">
-                    <Mail className="w-6 h-6" />
+            <div className="bg-surface-container-low p-6 sm:p-8 space-y-6 sm:space-y-8 rounded-xl">
+              <div className="space-y-6 sm:space-y-8">
+                <div className="flex items-start gap-3 sm:gap-4">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-primary flex items-center justify-center text-on-primary shrink-0 rounded-lg">
+                    <Mail className="w-5 h-5 sm:w-6 sm:h-6" />
                   </div>
                   <div>
-                    <p className="text-xs font-bold tracking-widest uppercase text-on-surface-variant mb-1">Email</p>
-                    <p className="text-xl font-bold text-primary">info@iceme.com</p>
+                    <p className="text-[10px] sm:text-xs font-bold tracking-widest uppercase text-on-surface-variant mb-1">Email</p>
+                    <p className="text-base sm:text-xl font-bold text-primary">info@icemesl.com</p>
                   </div>
                 </div>
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-primary flex items-center justify-center text-on-primary shrink-0 rounded-lg">
-                    <Phone className="w-6 h-6" />
+                <div className="flex items-start gap-3 sm:gap-4">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-primary flex items-center justify-center text-on-primary shrink-0 rounded-lg">
+                    <Phone className="w-5 h-5 sm:w-6 sm:h-6" />
                   </div>
                   <div>
                     <p className="text-xs font-bold tracking-widest uppercase text-on-surface-variant mb-1">Telephone</p>
-                    <p className="text-xl font-bold text-primary">+23277612425</p>
+                    <p className="text-xl font-bold text-primary">+23276612425</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
@@ -92,7 +92,7 @@ export default function Contact() {
 
           {/* Contact Form */}
           <div className="lg:col-span-7">
-            <div className="bg-[#030515] p-8 md:p-12 text-white rounded-xl">
+            <div className="bg-[#001A38] p-8 md:p-12 text-white rounded-xl">
               <h2 className="text-3xl font-bold mb-8 tracking-tight text-white">Send a Message</h2>
               <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -142,7 +142,7 @@ export default function Contact() {
             <div className="mt-8 relative overflow-hidden bg-surface-container h-48 md:h-64 rounded-xl">
               <img 
                 className="absolute inset-0 w-full h-full object-cover mix-blend-multiply opacity-20" 
-                src="https://images.unsplash.com/photo-1516937941344-00b4e0337589?auto=format&fit=crop&q=80&w=1000" 
+                src="/images/reliable cold chain.jpg" 
                 alt="Ice blocks"
                 referrerPolicy="no-referrer"
               />

@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { cn } from '@/src/lib/utils';
 import { motion, AnimatePresence } from 'motion/react';
-import { Menu, X, Sun, Moon, ChevronDown } from 'lucide-react';
+import { Menu, X, Sun, Moon, ChevronDown, Facebook, Instagram, Linkedin, Youtube, MessageCircle } from 'lucide-react';
 
 const navLinks = [
   { name: 'Home', href: '/' },
@@ -10,7 +10,7 @@ const navLinks = [
     name: 'About Us', 
     href: '/about',
     submenu: [
-      { name: 'Company Overview', href: '/about' },
+      { name: 'Who We Are', href: '/about' },
       { name: 'Our Team', href: '/team' },
     ]
   },
@@ -132,9 +132,23 @@ export default function Navbar() {
           </button>
         </div>
 
-        <button className="hidden md:block bg-primary text-on-primary px-6 py-2.5 rounded-md font-bold hover:opacity-80 transition-opacity">
-          Get a Quote
-        </button>
+        <div className="hidden md:flex gap-2">
+          <a href="#" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-on-surface hover:text-primary hover:bg-primary/10 transition-all">
+            <Facebook className="w-4 h-4" />
+          </a>
+          <a href="#" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-on-surface hover:text-primary hover:bg-primary/10 transition-all">
+            <Instagram className="w-4 h-4" />
+          </a>
+          <a href="#" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-on-surface hover:text-primary hover:bg-primary/10 transition-all">
+            <Linkedin className="w-4 h-4" />
+          </a>
+          <a href="#" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-on-surface hover:text-primary hover:bg-primary/10 transition-all">
+            <MessageCircle className="w-4 h-4" />
+          </a>
+          <a href="https://www.youtube.com/watch?v=gr7sfKNraQk" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-on-surface hover:text-primary hover:bg-primary/10 transition-all">
+            <Youtube className="w-4 h-4" />
+          </a>
+        </div>
 
         {/* Mobile Actions */}
         <div className="flex items-center gap-2 md:hidden z-50 relative">
@@ -213,11 +227,26 @@ export default function Navbar() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.4 }}
-              className="mt-auto pb-8"
+              className="mt-auto pb-8 px-6"
             >
-              <button className="w-full bg-primary text-on-primary px-6 py-4 rounded-xl font-bold text-lg hover:opacity-80 transition-opacity">
-                Get a Quote
-              </button>
+              <p className="text-sm font-medium text-on-surface-variant mb-4">Follow Us</p>
+              <div className="flex gap-3">
+                <a href="#" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center text-on-surface hover:text-primary hover:bg-primary/10 transition-all">
+                  <Facebook className="w-5 h-5" />
+                </a>
+                <a href="#" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center text-on-surface hover:text-primary hover:bg-primary/10 transition-all">
+                  <Instagram className="w-5 h-5" />
+                </a>
+                <a href="#" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center text-on-surface hover:text-primary hover:bg-primary/10 transition-all">
+                  <Linkedin className="w-5 h-5" />
+                </a>
+                <a href="#" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center text-on-surface hover:text-primary hover:bg-primary/10 transition-all">
+                  <MessageCircle className="w-5 h-5" />
+                </a>
+                <a href="https://www.youtube.com/watch?v=gr7sfKNraQk" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center text-on-surface hover:text-primary hover:bg-primary/10 transition-all">
+                  <Youtube className="w-5 h-5" />
+                </a>
+              </div>
             </motion.div>
           </motion.div>
         )}

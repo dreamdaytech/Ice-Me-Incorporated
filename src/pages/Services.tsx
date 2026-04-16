@@ -10,21 +10,21 @@ export default function Services() {
         description="Explore Ice Me Inc.'s services, including industrial crushed ice for fisheries, premium cube ice for hospitality, and 250MT cold storage solutions."
       />
       {/* Hero Section */}
-      <section className="relative min-h-[60vh] flex items-center overflow-hidden bg-primary">
-        <div className="absolute inset-0 opacity-40">
-          <img 
-            className="w-full h-full object-cover" 
-            src="https://images.unsplash.com/photo-1516937941344-00b4e0337589?auto=format&fit=crop&q=80&w=2000" 
+      <section className="relative min-h-[50vh] sm:min-h-[60vh] flex items-center overflow-hidden bg-primary">
+        <div className="absolute inset-0">
+          <img
+            className="w-full h-full object-cover"
+            src="/images/Our Expertise.jpg"
             alt="Ice textures"
-            referrerPolicy="no-referrer"
           />
+          <div className="absolute inset-0 bg-gradient-to-r from-white/80 via-white/40 to-transparent"></div>
         </div>
-        <div className="relative max-w-7xl mx-auto px-8 py-24 w-full">
-          <span className="text-secondary-container font-bold tracking-[0.2em] uppercase text-xs mb-4 block">Our Expertise</span>
-          <h1 className="text-display-md text-white tracking-tighter max-w-3xl">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 w-full">
+          <span className="text-[#001A38] font-bold tracking-[0.2em] uppercase text-[10px] sm:text-xs mb-3 sm:mb-4 block">Our Expertise</span>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-display-md font-black text-[#001A38] tracking-tighter max-w-3xl leading-tight">
             Pioneering the Cold Chain.
           </h1>
-          <p className="mt-8 text-on-primary-container text-lg md:text-xl max-w-xl font-medium leading-relaxed">
+          <p className="mt-6 sm:mt-8 text-[#43474F] text-base sm:text-lg md:text-xl max-w-xl font-medium leading-relaxed">
             From the deep-sea fishing fleets to the finest hospitality venues, we deliver structural reliability through the power of ice.
           </p>
         </div>
@@ -40,11 +40,10 @@ export default function Services() {
             className="md:col-span-7 relative group"
           >
             <div className="aspect-[4/3] rounded-xl overflow-hidden bg-surface-container-low">
-              <img 
-                className="w-full h-full object-cover grayscale-0 group-hover:scale-105 transition-transform duration-700" 
-                src="https://images.unsplash.com/photo-1498623116890-37e912163d5d?auto=format&fit=crop&q=80&w=1000" 
+              <img
+                className="w-full h-full object-cover grayscale-0 group-hover:scale-105 transition-transform duration-700"
+                src="/images/fishing-boat.jpeg"
                 alt="Fishing boat"
-                referrerPolicy="no-referrer"
               />
             </div>
             <div className="absolute -bottom-6 -right-6 p-8 glass-card rounded-xl shadow-xl hidden md:block max-w-xs">
@@ -55,9 +54,9 @@ export default function Services() {
             <div className="inline-flex items-center gap-2 px-3 py-1 bg-secondary-container text-on-secondary-container rounded-full text-xs font-bold mb-6">
               ⚓ INDUSTRIAL
             </div>
-            <h2 className="text-4xl font-black text-primary tracking-tight mb-6">Industrial Crushed Ice</h2>
+            <h2 className="text-4xl font-black text-primary tracking-tight mb-6">Industrial Crushed Ice Production</h2>
             <p className="text-on-surface-variant text-lg leading-relaxed mb-8">
-              Engineered for longevity. Our crushed ice is the lifeline for Sierra Leone's artisanal and industrial fishing sectors. Designed to maintain internal temperatures for extended voyages, ensuring the catch arrives at market in peak condition.
+              We produce high-quality crushed ice specifically designed for preserving fresh catch. Supplying over 500 artisanal fishing boats across the Western Area, our ice ensures that fish reach the shore in peak condition, reducing spoilage and maximizing profits for fishermen.
             </p>
             <ul className="space-y-4">
               {['Bulk delivery directly to port-side vessels', 'Specially formulated for slow-melt endurance'].map((li) => (
@@ -78,7 +77,7 @@ export default function Services() {
             </div>
             <h2 className="text-4xl font-black text-primary tracking-tight mb-6">Premium Cube Ice</h2>
             <p className="text-on-surface-variant text-lg leading-relaxed mb-8">
-              Crystal clear, food-grade ice for the hospitality sector. We supply Freetown's leading hotels, restaurants, and bars with ice that doesn't just cool—it complements the premium experience.
+              Tailored for the hospitality industry, our premium cube ice is perfect for hotels, restaurants, pubs, and households. It offers a clean, slow-melting solution ideal for beverages and food presentation, ensuring that Freetown's hospitality sector never runs out of stock.
             </p>
             <div className="grid grid-cols-2 gap-4">
               <div className="bg-surface-container-low p-6 rounded-xl">
@@ -100,11 +99,10 @@ export default function Services() {
             className="md:col-span-7 order-1 md:order-2"
           >
             <div className="aspect-[16/9] rounded-xl overflow-hidden bg-surface-container-low">
-              <img 
-                className="w-full h-full object-cover" 
-                src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&q=80&w=1000" 
+              <img
+                className="w-full h-full object-cover"
+                src="/images/Premium Cube Ice.jpg"
                 alt="Luxury cocktail"
-                referrerPolicy="no-referrer"
               />
             </div>
           </motion.div>
@@ -117,9 +115,9 @@ export default function Services() {
               <div className="inline-flex items-center gap-2 px-3 py-1 bg-primary text-white rounded-full text-xs font-bold mb-6">
                 ❄️ FACILITY
               </div>
-              <h2 className="text-4xl md:text-5xl font-black text-primary tracking-tighter mb-8">250MT Cold Storage</h2>
+              <h2 className="text-4xl md:text-5xl font-black text-primary tracking-tighter mb-8">Cold Room Storage (250 Metric Tonnes Capacity)</h2>
               <p className="text-on-surface-variant text-lg leading-relaxed mb-10 max-w-md">
-                Our state-of-the-art facility provides an unwavering environment for perishable goods. From pharmaceuticals to fresh produce, we offer secure, temperature-controlled sanctuary.
+                Our facility features two distinct cold rooms with a combined capacity of 250 metric tonnes. Designed for frozen fish storage and distribution, these modern rooms provide a safe haven for smoked fish and other essential food products, enabling exporters and vendors to store goods securely without fear of power outages or spoilage.
               </p>
               <div className="space-y-6">
                 {[
@@ -139,11 +137,10 @@ export default function Services() {
               </div>
             </div>
             <div className="relative min-h-[400px]">
-              <img 
-                className="absolute inset-0 w-full h-full object-cover rounded-2xl shadow-2xl" 
-                src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=1000" 
+              <img
+                className="absolute inset-0 w-full h-full object-cover rounded-2xl shadow-2xl"
+                src="/images/Cold Room Storage.jpg"
                 alt="Warehouse"
-                referrerPolicy="no-referrer"
               />
             </div>
           </div>
@@ -154,18 +151,17 @@ export default function Services() {
           <div className="inline-flex items-center gap-2 px-3 py-1 bg-secondary-container text-on-secondary-container rounded-full text-xs font-bold mb-6">
             🚚 LOGISTICS
           </div>
-          <h2 className="text-4xl md:text-5xl font-black text-primary tracking-tight mb-8">Seamless Cold-Chain Logistics</h2>
+          <h2 className="text-4xl md:text-5xl font-black text-primary tracking-tight mb-8">Refrigerated Logistics & Distribution</h2>
           <p className="text-on-surface-variant text-lg leading-relaxed mb-16">
-            Our specialized fleet ensures the "Last Mile" is as cold as the first. Utilizing a hybrid fleet of heavy-duty trucks and agile tricycles, we navigate Freetown's complex geography without breaking the thermal seal.
+            We operate a dedicated fleet of 3 delivery trucks and 3 frozen tricycles, allowing us to handle bulk distribution and navigate the streets of Freetown with ease. Whether delivering hundreds of bags of ice to the shoreline or restocking a hotel downtown, our logistics team ensures timely delivery.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="group overflow-hidden rounded-2xl bg-surface-container-highest">
               <div className="aspect-video">
-                <img 
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
-                  src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&q=80&w=800" 
+                <img
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  src="/images/Primary Fleet.jpg"
                   alt="Primary fleet"
-                  referrerPolicy="no-referrer"
                 />
               </div>
               <div className="p-8 text-left">
@@ -175,11 +171,10 @@ export default function Services() {
             </div>
             <div className="group overflow-hidden rounded-2xl bg-surface-container-highest">
               <div className="aspect-video">
-                <img 
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
-                  src="https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&q=80&w=800" 
+                <img
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  src="/images/Agile Tricycles.jpg"
                   alt="Agile tricycles"
-                  referrerPolicy="no-referrer"
                 />
               </div>
               <div className="p-8 text-left">

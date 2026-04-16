@@ -15,7 +15,7 @@ interface GalleryImage {
 const images: GalleryImage[] = [
   {
     id: '1',
-    src: 'https://images.unsplash.com/photo-1516937941344-00b4e0337589?auto=format&fit=crop&q=80&w=1200',
+    src: '/images/gallery-production.jpg',
     alt: 'Industrial ice production',
     category: 'operations',
     title: 'Precision Production',
@@ -23,7 +23,7 @@ const images: GalleryImage[] = [
   },
   {
     id: '2',
-    src: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80&w=1200',
+    src: '/images/gallery-coldroom.jpg',
     alt: 'Cold storage facility',
     category: 'facilities',
     title: 'The Cold Room',
@@ -31,7 +31,7 @@ const images: GalleryImage[] = [
   },
   {
     id: '3',
-    src: 'https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&q=80&w=1200',
+    src: '/images/gallery-fleet.jpg',
     alt: 'Refrigerated truck',
     category: 'logistics',
     title: 'Primary Fleet',
@@ -39,7 +39,7 @@ const images: GalleryImage[] = [
   },
   {
     id: '4',
-    src: 'https://images.unsplash.com/photo-1498623116890-37e912163d5d?auto=format&fit=crop&q=80&w=1200',
+    src: '/images/gallery-fishing.jpg',
     alt: 'Fishermen at sea',
     category: 'community',
     title: 'Coastal Support',
@@ -47,7 +47,7 @@ const images: GalleryImage[] = [
   },
   {
     id: '5',
-    src: 'https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&q=80&w=1200',
+    src: '/images/gallery-cubes.jpg',
     alt: 'Premium ice cubes',
     category: 'operations',
     title: 'Premium Purity',
@@ -55,7 +55,7 @@ const images: GalleryImage[] = [
   },
   {
     id: '6',
-    src: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=1200',
+    src: '/images/gallery-warehouse.jpg',
     alt: 'Warehouse logistics',
     category: 'facilities',
     title: 'Logistics Hub',
@@ -63,7 +63,7 @@ const images: GalleryImage[] = [
   },
   {
     id: '7',
-    src: 'https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&q=80&w=1200',
+    src: '/images/gallery-tricycle.jpg',
     alt: 'Delivery tricycle',
     category: 'logistics',
     title: 'Urban Delivery',
@@ -71,7 +71,7 @@ const images: GalleryImage[] = [
   },
   {
     id: '8',
-    src: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=1200',
+    src: '/images/gallery-market.jpg',
     alt: 'Local market',
     category: 'community',
     title: 'Market Impact',
@@ -160,9 +160,9 @@ export default function Gallery() {
                 className="group relative aspect-square rounded-xl overflow-hidden bg-surface-container-high cursor-pointer"
                 onClick={() => openLightbox(index)}
               >
-                <img 
-                  src={image.src} 
-                  alt={image.alt} 
+                <img
+                  src={image.src}
+                  alt={image.alt}
                   loading="lazy"
                   decoding="async"
                   onLoad={() => handleImageLoad(image.id)}
@@ -170,7 +170,6 @@ export default function Gallery() {
                     "w-full h-full object-cover transition-all duration-700 group-hover:scale-110",
                     loadedImages[image.id] ? "opacity-100 scale-100 blur-0" : "opacity-0 scale-105 blur-lg"
                   )}
-                  referrerPolicy="no-referrer"
                 />
                 <div className="absolute inset-0 bg-primary/60 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-6">
                   <Maximize2 className="absolute top-4 right-4 text-white w-5 h-5 opacity-0 group-hover:opacity-100 transition-opacity delay-100" />
@@ -223,16 +222,15 @@ export default function Gallery() {
               onClick={(e) => e.stopPropagation()}
             >
               <div className="relative w-full h-full max-h-[70vh] rounded-xl overflow-hidden bg-white/5">
-                <img 
-                  src={filteredImages[selectedImageIndex].src} 
-                  alt={filteredImages[selectedImageIndex].alt} 
+                <img
+                  src={filteredImages[selectedImageIndex].src}
+                  alt={filteredImages[selectedImageIndex].alt}
                   decoding="async"
                   onLoad={() => handleImageLoad(`lightbox-${filteredImages[selectedImageIndex].id}`)}
                   className={cn(
                     "w-full h-full object-contain transition-all duration-500",
                     loadedImages[`lightbox-${filteredImages[selectedImageIndex].id}`] ? "opacity-100 scale-100 blur-0" : "opacity-0 scale-95 blur-md"
                   )}
-                  referrerPolicy="no-referrer"
                 />
               </div>
               

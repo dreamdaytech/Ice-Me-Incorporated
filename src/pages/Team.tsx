@@ -10,13 +10,13 @@ export default function Team() {
         description="Meet the dedicated team of architects and specialists behind Sierra Leone's premier cold chain infrastructure at Ice Me Inc."
       />
       {/* Hero Section */}
-      <section className="relative pt-32 pb-24 px-8 overflow-hidden bg-background">
+      <section className="relative pt-24 sm:pt-32 pb-16 sm:pb-24 px-4 sm:px-6 lg:px-8 overflow-hidden bg-background">
         <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col gap-6 max-w-4xl">
+          <div className="flex flex-col gap-4 sm:gap-6 max-w-4xl">
             <motion.span 
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              className="text-sm font-bold tracking-[0.2em] uppercase text-primary"
+              className="text-xs sm:text-sm font-bold tracking-[0.2em] uppercase text-primary"
             >
               THE ARCTIC MONOLITH
             </motion.span>
@@ -24,22 +24,22 @@ export default function Team() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              className="text-6xl md:text-8xl font-black text-primary tracking-tighter leading-[0.9]"
+              className="text-4xl sm:text-6xl md:text-8xl font-black text-primary tracking-tighter leading-[0.9]"
             >
-              The Faces of the <br/>Cold Chain
+              The Faces of the <br className="hidden sm:block"/>Cold Chain
             </motion.h1>
             <motion.p 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="text-lg md:text-xl text-on-surface-variant max-w-2xl mt-4 leading-relaxed"
+              className="text-base sm:text-lg md:text-xl text-on-surface-variant max-w-2xl mt-2 sm:mt-4 leading-relaxed"
             >
               Behind every shipment is a team dedicated to the precision of temperature. We are the architects of the Sierra Leonean logistics infrastructure.
             </motion.p>
           </div>
         </div>
         {/* Decorative Element */}
-        <div className="absolute -top-24 -right-24 w-96 h-96 bg-secondary-container/20 rounded-full blur-[120px]"></div>
+        <div className="absolute -top-16 -right-16 sm:-top-24 sm:-right-24 w-64 h-64 sm:w-96 sm:h-96 bg-secondary-container/20 rounded-full blur-[100px] sm:blur-[120px]"></div>
       </section>
 
       {/* CEO Spotlight Section */}
@@ -53,11 +53,10 @@ export default function Team() {
               className="lg:col-span-5 relative"
             >
               <div className="aspect-[4/5] bg-surface-container-highest rounded-xl overflow-hidden shadow-[0_20px_40px_rgba(0,26,56,0.05)]">
-                <img 
-                  alt="Marie Garber" 
-                  className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" 
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuDT-hd5xHNwsD-8k1wWKo0Pmai-Q8_c6URrQhnJW6GxKODFa-3FGoQe93c_yHN63ZfISiJOh5ePODEE0g9qfWnm4kUT4ab-3Tq1WloouiCVT7nbx-Kng2e6W34YXE-QrmJj7HfI5dhzGbrb8b3eedqGt2PzVZy_jvvrCZsdVgQDoe3cL3Az8bkASBr7IAdv9zBlFxErNvcEivWm8rR2-wu-bYuAfrngbI-zKkjpqu93DX8k74KxX31f_etTyDk6EHhm-8Di-84n0r9c"
-                  referrerPolicy="no-referrer"
+                <img
+                  alt="Marie Garber"
+                  className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+                  src="/images/Marie Garber - Founder & CEO.jpg"
                 />
               </div>
               <div className="absolute -bottom-6 -right-6 bg-primary text-on-primary p-8 rounded-xl shadow-xl hidden md:block max-w-xs">
@@ -109,22 +108,34 @@ export default function Team() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
-                category: 'MANAGEMENT',
-                role: 'Operations Manager',
-                desc: 'Overseeing the daily synchronization of our fleet and facility operations.',
-                img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuASyyJko6IujiuRi3w4c6ku955lI8DhGRAM0yhwJ-lJSPRtxwRuFBfq8Zmw_6vdPfeCHAykn2e0_83HvxJpOw9WirhkXE7LHXqZ5nVatYmHT3uMdssgK2AnnoMqmAUEGQwP_U7T1g168kF36mRBi5NFc17Y4zd_K0Uu_LsgnYbFVYFiNY9Q_GskiDTaCEQhZrkhem1tLHQMxFU7h0_3H44DU8mhjPS3pzXsclVkmLii5OLUaPtGdFlgtcszLRH1p2DK0qFdecHiczRr'
+                category: 'PRODUCTION SUPERVISORS',
+                role: 'Yusufu Mansaray',
+                desc: 'Supervising ice production operations to ensure consistent quality and output.',
+                img: '/images/Agile Tricycles.jpg'
               },
               {
-                category: 'DISTRIBUTION',
-                role: 'Logistics Lead',
-                desc: 'Mastering the complex routes and timing of our refrigerated transport network.',
-                img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuD9QoOlA47cw1xmGBzr0MZcRcs2KenhJm2r0QzgqI-zCGNywqKNT1r0UaVtYWBI7ZkYxpy0HQLaJB_Q4MiDdvDHv-hTc3GHrhldAI1GC-AlNSeilg4gSg7vQhlqmwfmWEDyxL9CLvTNSWSNA6z-6YtwvN9vFCIYW24k1jaFyERXe64sg-awOjcMukXi0pFTyKOsMYVdqHPCd9w1m7eN3pRoq1DCEfDw0u9sDPDnu_E2hafEaM54Pkc_mQNTRYfYu1cksNvyY_3vv5Va'
+                category: 'PRODUCTION SUPERVISORS',
+                role: 'Fatmata Bundeh',
+                desc: 'Supervisor overseeing daily production workflows and quality assurance.',
+                img: '/images/Agile Tricycles.jpg'
               },
               {
-                category: 'INFRASTRUCTURE',
-                role: 'Facility Supervisor',
-                desc: 'Ensuring our cold storage environments maintain perfect equilibrium 24/7.',
-                img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuC1hiKsrYQPBrUi26_DPGYFTI1VLuxP6DdGVhbZeXtWNAC8VVQNlx3_C5P3G1lr9HEpxB2ef6Kxw2fYaI-miXpTlqjJms4wWk9BdmkFLqiyEtxUJUT2rqVwVLzbEQwhOzq1vU2XGH5Mq2dIHV64F3nFm4ATgQkIspWN0RvmheKntZmSX6nn0Jss4keynNc8M8Ycfu_qEUep1hEzsARp9RZKzzridsbZuOo6HKwGpCWEjLdhEtO1GJv7qqnDDsRgsDzvJq6oOzl4afWc'
+                category: 'MECHANICS',
+                role: 'Kamanda Berlin Kamara',
+                desc: 'Electrician maintaining all electrical systems across our facilities.',
+                img: '/images/Agile Tricycles.jpg'
+              },
+              {
+                category: 'MECHANICS',
+                role: 'Mohamed Bangura',
+                desc: 'Engineer ensuring optimal performance of refrigeration and mechanical systems.',
+                img: '/images/Agile Tricycles.jpg'
+              },
+              {
+                category: 'MECHANICS',
+                role: 'Ibrahim Kanu',
+                desc: 'Engineer specializing in equipment maintenance and technical troubleshooting.',
+                img: '/images/Agile Tricycles.jpg'
               }
             ].map((member, idx) => (
               <motion.div 
@@ -136,11 +147,10 @@ export default function Team() {
                 className="group bg-surface-container-lowest rounded-xl p-8 hover:bg-primary transition-all duration-500 shadow-[0_4px_20px_rgba(0,26,56,0.02)] border border-outline-variant/10"
               >
                 <div className="w-full aspect-square bg-surface-container mb-8 rounded-lg overflow-hidden grayscale group-hover:grayscale-0 transition-all">
-                  <img 
-                    src={member.img} 
-                    alt={member.role} 
+                  <img
+                    src={member.img}
+                    alt={member.role}
                     className="w-full h-full object-cover"
-                    referrerPolicy="no-referrer"
                   />
                 </div>
                 <span className="text-xs font-bold tracking-[0.2em] text-on-surface-variant uppercase group-hover:text-primary-container mb-2 block transition-colors">
