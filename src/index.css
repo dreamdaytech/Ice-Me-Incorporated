@@ -57,14 +57,14 @@
   }
 
   .dark {
-    --primary: #cce9f5;
+    --primary: #52a9ff;
     --primary-container: #004c69;
-    --on-primary: #00354b;
-    --on-primary-container: #c4e7ff;
+    --on-primary: #ffffff;
+    --on-primary-container: #ffffff;
     
-    --secondary: #c4c6d1;
-    --secondary-container: #44474f;
-    --on-secondary-container: #e0e2ed;
+    --secondary: #8e9199;
+    --secondary-container: #2f3133;
+    --on-secondary-container: #ffffff;
     
     --background: #030515;
     --surface: #030515;
@@ -73,8 +73,8 @@
     --surface-container-highest: #333537;
     --surface-container-lowest: #000000;
     
-    --on-surface: #e2e2e6;
-    --on-surface-variant: #c4c6d0;
+    --on-surface: #ffffff;
+    --on-surface-variant: #ffffff;
     
     --outline: #8e9199;
     --outline-variant: #44474e;
