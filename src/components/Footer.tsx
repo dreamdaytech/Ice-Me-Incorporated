@@ -63,7 +63,7 @@ export default function Footer() {
         <div>
           <h4 className="font-bold text-sm uppercase tracking-[0.2em] mb-8 text-white/40">Connect</h4>
           <div className="flex gap-4 flex-wrap">
-            <a href="#" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center text-slate-300 hover:text-white hover:bg-white/10 transition-all border border-white/10">
+            <a href="https://www.facebook.com/people/Ice-Me-Incorporated-SL/61569222415558/" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center text-slate-300 hover:text-white hover:bg-white/10 transition-all border border-white/10">
               <Facebook className="w-5 h-5" />
             </a>
             <a href="#" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center text-slate-300 hover:text-white hover:bg-white/10 transition-all border border-white/10">
@@ -72,10 +72,10 @@ export default function Footer() {
             <a href="#" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center text-slate-300 hover:text-white hover:bg-white/10 transition-all border border-white/10">
               <Linkedin className="w-5 h-5" />
             </a>
-            <a href="#" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center text-slate-300 hover:text-white hover:bg-white/10 transition-all border border-white/10">
+            <a href="https://wa.me/+23276612425" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center text-slate-300 hover:text-white hover:bg-white/10 transition-all border border-white/10">
               <MessageCircle className="w-5 h-5" />
             </a>
-            <a href="https://www.youtube.com/watch?v=gr7sfKNraQk" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center text-slate-300 hover:text-white hover:bg-white/10 transition-all border border-white/10">
+            <a href="https://www.youtube.com/@IceMesl" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center text-slate-300 hover:text-white hover:bg-white/10 transition-all border border-white/10">
               <Youtube className="w-5 h-5" />
             </a>
           </div>

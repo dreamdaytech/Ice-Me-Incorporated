@@ -50,9 +50,9 @@ export default function Home() {
               Setting the gold standard in thermal integrity. We provide the structural ice and storage solutions that power Freetown's industry and hospitality.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 items-center sm:items-start">
-              <button className="bg-primary text-on-primary px-8 sm:px-10 py-4 rounded-md font-bold arctic-gradient shadow-lg hover:scale-105 transition-transform w-full sm:w-auto">
+              <Link to="/contact" className="bg-primary text-on-primary px-8 sm:px-10 py-4 rounded-md font-bold arctic-gradient shadow-lg hover:scale-105 transition-transform w-full sm:w-auto text-center inline-block">
                 Partner With Us
-              </button>
+              </Link>
               <button className="flex items-center justify-center sm:justify-start gap-2 text-primary px-8 sm:px-10 py-4 font-bold hover:opacity-70 transition-opacity w-full sm:w-auto">
                 <PlayCircle className="w-6 h-6" />
                 View Facility Tour

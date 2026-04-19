@@ -55,7 +55,7 @@ export default function Team() {
               <div className="aspect-[4/5] bg-surface-container-highest rounded-xl overflow-hidden shadow-[0_20px_40px_rgba(0,26,56,0.05)]">
                 <img
                   alt="Marie Garber"
-                  className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+                  className="w-full h-full object-cover transition-all duration-700"
                   src="/images/Marie Garber - Founder & CEO.jpg"
                 />
               </div>
@@ -146,7 +146,7 @@ export default function Team() {
                 transition={{ delay: idx * 0.1 }}
                 className="group bg-surface-container-lowest rounded-xl p-8 hover:bg-primary transition-all duration-500 shadow-[0_4px_20px_rgba(0,26,56,0.02)] border border-outline-variant/10"
               >
-                <div className="w-full aspect-square bg-surface-container mb-8 rounded-lg overflow-hidden grayscale group-hover:grayscale-0 transition-all">
+                <div className="w-full aspect-square bg-surface-container mb-8 rounded-lg overflow-hidden transition-all">
                   <img
                     src={member.img}
                     alt={member.role}

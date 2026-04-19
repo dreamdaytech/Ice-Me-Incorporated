@@ -133,7 +133,7 @@ export default function Navbar() {
         </div>
 
         <div className="hidden md:flex gap-2">
-          <a href="#" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-on-surface hover:text-primary hover:bg-primary/10 transition-all">
+          <a href="https://www.facebook.com/people/Ice-Me-Incorporated-SL/61569222415558/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-on-surface hover:text-primary hover:bg-primary/10 transition-all">
             <Facebook className="w-4 h-4" />
           </a>
           <a href="#" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-on-surface hover:text-primary hover:bg-primary/10 transition-all">
@@ -142,10 +142,10 @@ export default function Navbar() {
           <a href="#" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-on-surface hover:text-primary hover:bg-primary/10 transition-all">
             <Linkedin className="w-4 h-4" />
           </a>
-          <a href="#" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-on-surface hover:text-primary hover:bg-primary/10 transition-all">
+          <a href="https://wa.me/+23276612425" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-on-surface hover:text-primary hover:bg-primary/10 transition-all">
             <MessageCircle className="w-4 h-4" />
           </a>
-          <a href="https://www.youtube.com/watch?v=gr7sfKNraQk" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-on-surface hover:text-primary hover:bg-primary/10 transition-all">
+          <a href="https://www.youtube.com/@IceMesl" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-on-surface hover:text-primary hover:bg-primary/10 transition-all">
             <Youtube className="w-4 h-4" />
           </a>
         </div>
@@ -231,7 +231,7 @@ export default function Navbar() {
             >
               <p className="text-sm font-medium text-on-surface-variant mb-4">Follow Us</p>
               <div className="flex gap-3">
-                <a href="#" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center text-on-surface hover:text-primary hover:bg-primary/10 transition-all">
+                <a href="https://www.facebook.com/people/Ice-Me-Incorporated-SL/61569222415558/" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center text-on-surface hover:text-primary hover:bg-primary/10 transition-all">
                   <Facebook className="w-5 h-5" />
                 </a>
                 <a href="#" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center text-on-surface hover:text-primary hover:bg-primary/10 transition-all">
@@ -240,10 +240,10 @@ export default function Navbar() {
                 <a href="#" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center text-on-surface hover:text-primary hover:bg-primary/10 transition-all">
                   <Linkedin className="w-5 h-5" />
                 </a>
-                <a href="#" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center text-on-surface hover:text-primary hover:bg-primary/10 transition-all">
+                <a href="https://wa.me/+23276612425" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center text-on-surface hover:text-primary hover:bg-primary/10 transition-all">
                   <MessageCircle className="w-5 h-5" />
                 </a>
-                <a href="https://www.youtube.com/watch?v=gr7sfKNraQk" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center text-on-surface hover:text-primary hover:bg-primary/10 transition-all">
+                <a href="https://www.youtube.com/@IceMesl" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center text-on-surface hover:text-primary hover:bg-primary/10 transition-all">
                   <Youtube className="w-5 h-5" />
                 </a>
               </div>
