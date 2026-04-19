@@ -8,13 +8,14 @@ const __dirname = path.dirname(__filename);
 async function startServer() {
   const app = express();
   const PORT = process.env.PORT || 3000;
+  console.log(`Starting server in ${process.env.NODE_ENV || 'production'} mode on port ${PORT}`);
 
   // API routes can be added here
   app.get("/api/health", (req, res) => {
     res.json({ status: "ok" });
   });
 
-  if (process.env.NODE_ENV !== "production") {
+  if (process.env.NODE_ENV === "development") {
     // Dynamic import for Vite (dev only)
     const { createServer: createViteServer } = await import("vite");
     const vite = await createViteServer({
