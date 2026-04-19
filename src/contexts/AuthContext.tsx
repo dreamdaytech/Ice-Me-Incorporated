@@ -3,7 +3,8 @@ import {
   onAuthStateChanged, 
   User, 
   GoogleAuthProvider, 
-  signInWithPopup, 
+  signInWithRedirect, 
+  getRedirectResult,
   signOut 
 } from 'firebase/auth';
 import { doc, getDoc, setDoc, serverTimestamp } from 'firebase/firestore';
@@ -26,11 +27,12 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [userRole, setUserRole] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
-      setUser(currentUser);
-      
-      if (currentUser) {
+  // 1. Unified state handler
+  const handleUserSession = async (currentUser: User | null) => {
+    setUser(currentUser);
+    
+    if (currentUser) {
+      try {
         // Check or create user profile in Firestore
         const userDocRef = doc(db, 'users', currentUser.uid);
         const userDoc = await getDoc(userDocRef);
@@ -50,10 +52,34 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
           });
           setUserRole(defaultRole);
         }
-      } else {
-        setUserRole(null);
+      } catch (error) {
+        console.error("Error fetching/creating user role:", error);
+        setUserRole('user'); // Fallback
       }
-      
+    } else {
+      setUserRole(null);
+    }
+  };
+
+  useEffect(() => {
+    // 2. Handle the redirect result when the page loads
+    const checkRedirect = async () => {
+      try {
+        const result = await getRedirectResult(auth);
+        if (result) {
+          console.log("Successfully signed in via redirect:", result.user.email);
+          await handleUserSession(result.user);
+        }
+      } catch (error) {
+        console.error("Error handling sign-in redirect:", error);
+      }
+    };
+
+    checkRedirect();
+
+    // 3. Listen for auth state changes
+    const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
+      await handleUserSession(currentUser);
       setLoading(false);
     });
 
@@ -62,10 +88,14 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   const signIn = async () => {
     const provider = new GoogleAuthProvider();
+    // Use clear prompt to avoid account switching issues if needed
+    provider.setCustomParameters({ prompt: 'select_account' });
+    
     try {
-      await signInWithPopup(auth, provider);
+      // Switch to sign-in with redirect to bypass popup blockers
+      await signInWithRedirect(auth, provider);
     } catch (error) {
-      console.error("Error signing in:", error);
+      console.error("Critical error during sign-in redirect initiation:", error);
     }
   };
 

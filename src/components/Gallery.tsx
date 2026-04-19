@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { X, ChevronLeft, ChevronRight, Maximize2 } from 'lucide-react';
+import { collection, onSnapshot, query, orderBy } from 'firebase/firestore';
+import { db } from '../lib/firebase';
 import { cn } from '../lib/utils';
 
 interface GalleryImage {
@@ -12,7 +14,7 @@ interface GalleryImage {
   description: string;
 }
 
-const images: GalleryImage[] = [
+const STATIC_FALLBACK: GalleryImage[] = [
   {
     id: '1',
     src: '/images/gallery-production.jpg',
@@ -82,7 +84,22 @@ const images: GalleryImage[] = [
 const categories = ['all', 'operations', 'facilities', 'logistics', 'community'];
 
 export default function Gallery() {
+  const [images, setImages] = useState<GalleryImage[]>([]);
   const [filter, setFilter] = useState('all');
+
+  useEffect(() => {
+    const q = query(collection(db, 'galleryItems'), orderBy('createdAt', 'desc'));
+    const unsubscribe = onSnapshot(q, (snapshot) => {
+      const items = snapshot.docs.map(doc => ({
+        id: doc.id,
+        ...doc.data()
+      })) as GalleryImage[];
+      
+      setImages(items.length > 0 ? items : STATIC_FALLBACK);
+    });
+
+    return () => unsubscribe();
+  }, []);
   const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
   const [loadedImages, setLoadedImages] = useState<Record<string, boolean>>({});
 

@@ -13,7 +13,7 @@ const Team = lazy(() => import('./pages/Team'));
 const Contact = lazy(() => import('./pages/Contact'));
 const Blog = lazy(() => import('./pages/Blog'));
 const BlogPost = lazy(() => import('./pages/BlogPost'));
-const BlogAdmin = lazy(() => import('./pages/BlogAdmin'));
+const Dashboard = lazy(() => import('./pages/Dashboard'));
 const GalleryPage = lazy(() => import('./pages/GalleryPage'));
 
 function ScrollToTop() {
@@ -52,7 +52,7 @@ export default function App() {
                   <Route path="/contact" element={<Contact />} />
                   <Route path="/blog" element={<Blog />} />
                   <Route path="/blog/:id" element={<BlogPost />} />
-                  <Route path="/blog/admin" element={<BlogAdmin />} />
+                  <Route path="/dashboard" element={<Dashboard />} />
                   <Route path="/gallery" element={<GalleryPage />} />
                 </Routes>
               </Suspense>

@@ -2,7 +2,8 @@ import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { cn } from '@/src/lib/utils';
 import { motion, AnimatePresence } from 'motion/react';
-import { Menu, X, Sun, Moon, ChevronDown, Facebook, Instagram, Linkedin, Youtube, MessageCircle } from 'lucide-react';
+import { Menu, X, Sun, Moon, ChevronDown, Facebook, Instagram, Linkedin, Youtube, MessageCircle, LayoutDashboard } from 'lucide-react';
+import { useAuth } from '../contexts/AuthContext';
 
 const navLinks = [
   { name: 'Home', href: '/' },
@@ -21,6 +22,7 @@ const navLinks = [
 ];
 
 export default function Navbar() {
+  const { isEditor } = useAuth();
   const location = useLocation();
   const [isOpen, setIsOpen] = useState(false);
   const [isDark, setIsDark] = useState(() => {
@@ -122,6 +124,20 @@ export default function Navbar() {
             );
           })}
 
+          {/* Dashboard Link (Admin/Editor) */}
+          {isEditor && (
+            <Link
+              to="/dashboard"
+              className={cn(
+                "flex items-center gap-2 px-4 py-2 rounded-xl bg-primary/10 text-primary hover:bg-primary hover:text-white transition-all scale-95 hover:scale-100",
+                location.pathname === '/dashboard' && "bg-primary text-white scale-100"
+              )}
+            >
+              <LayoutDashboard className="w-4 h-4" />
+              <span className="text-xs uppercase tracking-widest font-black">Admin</span>
+            </Link>
+          )}
+
           {/* Theme Toggle Button */}
           <button
             onClick={() => setIsDark(!isDark)}
@@ -180,7 +196,27 @@ export default function Navbar() {
             className="absolute top-0 left-0 w-full h-screen bg-background flex flex-col pt-24 px-6 pb-8 md:hidden shadow-2xl"
           >
             <div className="flex flex-col space-y-4 text-center flex-grow overflow-y-auto pt-4">
-              {navLinks.map((link, i) => {
+            {isEditor && (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.05 }}
+                className="flex flex-col items-center mb-4"
+              >
+                <Link
+                  to="/dashboard"
+                  className={cn(
+                    "text-3xl font-black tracking-tighter block transition-colors flex items-center gap-3",
+                    location.pathname === '/dashboard' ? "text-primary" : "text-primary/60 hover:text-primary"
+                  )}
+                >
+                  <LayoutDashboard className="w-8 h-8" />
+                  DASHBOARD
+                </Link>
+                <div className="w-24 h-1 bg-primary/20 rounded-full mt-2" />
+              </motion.div>
+            )}
+            {navLinks.map((link, i) => {
                 const isActive = location.pathname === link.href || 
                   (link.submenu?.some(sub => location.pathname === sub.href));
                 
