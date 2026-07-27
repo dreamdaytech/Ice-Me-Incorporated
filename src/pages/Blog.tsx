@@ -6,6 +6,13 @@ import { collection, onSnapshot, query, orderBy } from 'firebase/firestore';
 import { db, handleFirestoreError, OperationType } from '../lib/firebase';
 import SEO from '../components/SEO';
 
+function getDriveImageUrl(url: string): string {
+  if (!url) return url;
+  const match = url.match(/drive\.google\.com\/file\/d\/([a-zA-Z0-9_-]+)/);
+  if (match) return `https://lh3.googleusercontent.com/d/${match[1]}`;
+  return url;
+}
+
 interface BlogPost {
   id: string;
   title: string;
@@ -93,7 +100,7 @@ export default function Blog() {
                 >
                   <Link to={`/blog/${post.id}`} className="block relative aspect-[16/10] overflow-hidden rounded-xl mb-6 bg-surface-container-high">
                     <img
-                      src={post.image}
+                      src={getDriveImageUrl(post.image)}
                       alt={post.title}
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                       referrerPolicy="no-referrer"

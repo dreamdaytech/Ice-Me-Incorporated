@@ -35,8 +35,23 @@ import { Link, useNavigate } from 'react-router-dom';
 import { cn } from '../lib/utils';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
+// --- Helpers ---
 
-// --- Types ---
+/**
+ * Converts a Google Drive share/view URL to a direct-embeddable image URL.
+ * e.g. https://drive.google.com/file/d/FILE_ID/view?usp=... 
+ *   => https://lh3.googleusercontent.com/d/FILE_ID
+ * Passes any non-Drive URL through unchanged.
+ */
+function getDriveImageUrl(url: string): string {
+  if (!url) return url;
+  const match = url.match(/drive\.google\.com\/file\/d\/([a-zA-Z0-9_-]+)/);
+  if (match) {
+    return `https://lh3.googleusercontent.com/d/${match[1]}`;
+  }
+  return url;
+}
+
 
 interface BlogPost {
   id: string;
@@ -335,20 +350,20 @@ export default function Dashboard() {
                   <input required placeholder="Read Time" value={blogFormData.readTime} onChange={e => setBlogFormData({ ...blogFormData, readTime: e.target.value })} className="bg-surface-container border-none rounded-xl px-6 py-4 font-bold" />
                 </div>
                 <div className="space-y-2">
-                  <input required placeholder="Image URL" value={blogFormData.image} onChange={e => { setBlogFormData({ ...blogFormData, image: e.target.value }); setImageError(false); }} className="w-full bg-surface-container border-none rounded-xl px-6 py-4 font-bold" />
+                  <input required placeholder="Image URL (supports Google Drive share links)" value={blogFormData.image} onChange={e => { setBlogFormData({ ...blogFormData, image: e.target.value }); setImageError(false); }} className="w-full bg-surface-container border-none rounded-xl px-6 py-4 font-bold" />
                   {blogFormData.image && (
                     <div className="mt-2 rounded-xl overflow-hidden aspect-[21/9] bg-surface-container-high border border-outline-variant/10 relative">
                       {!imageError ? (
                         <img 
-                          src={blogFormData.image} 
+                          src={getDriveImageUrl(blogFormData.image)} 
                           alt="Preview" 
                           className="w-full h-full object-cover" 
                           onError={() => setImageError(true)} 
                         />
                       ) : (
                         <div className="w-full h-full flex flex-col items-center justify-center p-6 text-center">
-                          <div className="text-error font-bold mb-2">Invalid Image URL</div>
-                          <p className="text-xs text-on-surface-variant">Please provide a direct link to an image file (e.g., ending in .jpg or .png). Note: Google Drive viewer links will not work.</p>
+                          <div className="text-error font-bold mb-2">⚠ Could Not Load Image</div>
+                          <p className="text-xs text-on-surface-variant">Make sure the Google Drive file sharing is set to <strong>"Anyone with the link"</strong>, or use a direct image URL (.jpg, .png).</p>
                         </div>
                       )}
                       <div className="absolute top-2 left-2 bg-black/70 backdrop-blur-md text-white text-[10px] font-bold uppercase tracking-widest px-2 py-1 rounded">Preview</div>
