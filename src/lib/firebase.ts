@@ -1,12 +1,22 @@
 import { initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
 import { getFirestore, doc, getDocFromServer } from 'firebase/firestore';
+import { getAnalytics } from 'firebase/analytics';
 import firebaseConfig from '../../firebase-applet-config.json';
 
 // Initialize Firebase SDK
 const app = initializeApp(firebaseConfig);
-export const db = getFirestore(app, firebaseConfig.firestoreDatabaseId);
+
+// Use default database if firestoreDatabaseId is "(default)" or not set
+const dbId = firebaseConfig.firestoreDatabaseId;
+export const db = (!dbId || dbId === '(default)')
+  ? getFirestore(app)
+  : getFirestore(app, dbId);
+
 export const auth = getAuth(app);
+
+// Initialize Analytics (only in browser environment)
+export const analytics = typeof window !== 'undefined' ? getAnalytics(app) : null;
 
 // Test connection
 async function testConnection() {

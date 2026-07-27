@@ -3,7 +3,7 @@ import {
   onAuthStateChanged, 
   User, 
   GoogleAuthProvider, 
-  signInWithRedirect, 
+  signInWithPopup, 
   getRedirectResult,
   signOut 
 } from 'firebase/auth';
@@ -92,10 +92,10 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     provider.setCustomParameters({ prompt: 'select_account' });
     
     try {
-      // Switch to sign-in with redirect to bypass popup blockers
-      await signInWithRedirect(auth, provider);
+      // Switch to sign-in with popup to be more reliable
+      await signInWithPopup(auth, provider);
     } catch (error) {
-      console.error("Critical error during sign-in redirect initiation:", error);
+      console.error("Critical error during sign-in popup initiation:", error);
     }
   };
 
