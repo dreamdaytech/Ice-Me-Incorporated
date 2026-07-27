@@ -75,6 +75,7 @@ export default function Dashboard() {
   const [posts, setPosts] = useState<BlogPost[]>([]);
   const [isBlogModalOpen, setIsBlogModalOpen] = useState(false);
   const [editingPost, setEditingPost] = useState<BlogPost | null>(null);
+  const [imageError, setImageError] = useState(false);
   const [blogFormData, setBlogFormData] = useState({
     title: '',
     excerpt: '',
@@ -117,6 +118,13 @@ export default function Dashboard() {
   }, [user]);
 
   // --- Blog Handlers ---
+
+  const handleEditBlog = (post: BlogPost) => {
+    setEditingPost(post);
+    setBlogFormData(post);
+    setImageError(false);
+    setIsBlogModalOpen(true);
+  };
 
   const handleBlogSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -277,7 +285,7 @@ export default function Dashboard() {
                       <p className="text-on-surface-variant text-xs line-clamp-1">{post.excerpt}</p>
                     </div>
                     <div className="flex gap-2">
-                      <button onClick={() => { setEditingPost(post); setBlogFormData(post); setIsBlogModalOpen(true); }} className="p-3 bg-surface-container rounded-xl hover:text-primary transition-all"><Edit2 className="w-4 h-4" /></button>
+                      <button onClick={() => handleEditBlog(post)} className="p-3 bg-surface-container rounded-xl hover:text-primary transition-all"><Edit2 className="w-4 h-4" /></button>
                       <button onClick={() => handleBlogDelete(post.id)} className="p-3 bg-surface-container rounded-xl hover:text-error transition-all"><Trash2 className="w-4 h-4" /></button>
                     </div>
                   </div>
@@ -327,17 +335,22 @@ export default function Dashboard() {
                   <input required placeholder="Read Time" value={blogFormData.readTime} onChange={e => setBlogFormData({ ...blogFormData, readTime: e.target.value })} className="bg-surface-container border-none rounded-xl px-6 py-4 font-bold" />
                 </div>
                 <div className="space-y-2">
-                  <input required placeholder="Image URL" value={blogFormData.image} onChange={e => setBlogFormData({ ...blogFormData, image: e.target.value })} className="w-full bg-surface-container border-none rounded-xl px-6 py-4 font-bold" />
+                  <input required placeholder="Image URL" value={blogFormData.image} onChange={e => { setBlogFormData({ ...blogFormData, image: e.target.value }); setImageError(false); }} className="w-full bg-surface-container border-none rounded-xl px-6 py-4 font-bold" />
                   {blogFormData.image && (
                     <div className="mt-2 rounded-xl overflow-hidden aspect-[21/9] bg-surface-container-high border border-outline-variant/10 relative">
-                      <img 
-                        src={blogFormData.image} 
-                        alt="Preview" 
-                        className="w-full h-full object-cover" 
-                        onError={(e) => {
-                          (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1541888087617-646700abeb88?auto=format&fit=crop&q=80&w=1200';
-                        }} 
-                      />
+                      {!imageError ? (
+                        <img 
+                          src={blogFormData.image} 
+                          alt="Preview" 
+                          className="w-full h-full object-cover" 
+                          onError={() => setImageError(true)} 
+                        />
+                      ) : (
+                        <div className="w-full h-full flex flex-col items-center justify-center p-6 text-center">
+                          <div className="text-error font-bold mb-2">Invalid Image URL</div>
+                          <p className="text-xs text-on-surface-variant">Please provide a direct link to an image file (e.g., ending in .jpg or .png). Note: Google Drive viewer links will not work.</p>
+                        </div>
+                      )}
                       <div className="absolute top-2 left-2 bg-black/70 backdrop-blur-md text-white text-[10px] font-bold uppercase tracking-widest px-2 py-1 rounded">Preview</div>
                     </div>
                   )}
