@@ -41,7 +41,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
           setUserRole(userDoc.data().role);
         } else {
           // Default role for new users
-          const defaultRole = currentUser.email === 'dreamdaytech@gmail.com' ? 'admin' : 'user';
+          const defaultRole = (currentUser.email === 'dreamdaytech@gmail.com' || currentUser.email === 'icemesl01@gmail.com') ? 'admin' : 'user';
           await setDoc(userDocRef, {
             uid: currentUser.uid,
             email: currentUser.email,
