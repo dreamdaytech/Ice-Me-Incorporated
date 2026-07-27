@@ -10,7 +10,7 @@ interface SEOProps {
 
 export default function SEO({ 
   title, 
-  description = "Ice Me Inc. - Sierra Leone's leading provider of premium ice and cold chain logistics solutions.",
+  description = "From the bustling harbors of Freetown to the elite hospitality sector, Ice Me Inc. has established itself as the indispensable leader in Sierra Leone's cold chain logistics.",
   image = "https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&q=80&w=1200",
   url = "https://icemeinc.com",
   type = "website"
