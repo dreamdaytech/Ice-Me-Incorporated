@@ -152,6 +152,9 @@ export default function BlogPost() {
             alt={post.title} 
             className="w-full h-full object-cover"
             referrerPolicy="no-referrer"
+            onError={(e) => {
+              (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1541888087617-646700abeb88?auto=format&fit=crop&q=80&w=1200';
+            }}
           />
         </motion.div>
       </section>
@@ -242,6 +245,9 @@ export default function BlogPost() {
                     alt={relatedPost.title} 
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     referrerPolicy="no-referrer"
+                    onError={(e) => {
+                      (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1541888087617-646700abeb88?auto=format&fit=crop&q=80&w=1200';
+                    }}
                   />
                 </div>
                 <h3 className="text-xl font-black tracking-tight text-primary group-hover:text-primary/80 transition-colors line-clamp-2">

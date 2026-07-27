@@ -33,6 +33,8 @@ import { db, handleFirestoreError, OperationType } from '../lib/firebase';
 import { useAuth } from '../contexts/AuthContext';
 import { Link, useNavigate } from 'react-router-dom';
 import { cn } from '../lib/utils';
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
 
 // --- Types ---
 
@@ -324,9 +326,32 @@ export default function Dashboard() {
                   </select>
                   <input required placeholder="Read Time" value={blogFormData.readTime} onChange={e => setBlogFormData({ ...blogFormData, readTime: e.target.value })} className="bg-surface-container border-none rounded-xl px-6 py-4 font-bold" />
                 </div>
-                <input required placeholder="Image URL" value={blogFormData.image} onChange={e => setBlogFormData({ ...blogFormData, image: e.target.value })} className="w-full bg-surface-container border-none rounded-xl px-6 py-4 font-bold" />
+                <div className="space-y-2">
+                  <input required placeholder="Image URL" value={blogFormData.image} onChange={e => setBlogFormData({ ...blogFormData, image: e.target.value })} className="w-full bg-surface-container border-none rounded-xl px-6 py-4 font-bold" />
+                  {blogFormData.image && (
+                    <div className="mt-2 rounded-xl overflow-hidden aspect-[21/9] bg-surface-container-high border border-outline-variant/10 relative">
+                      <img 
+                        src={blogFormData.image} 
+                        alt="Preview" 
+                        className="w-full h-full object-cover" 
+                        onError={(e) => {
+                          (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1541888087617-646700abeb88?auto=format&fit=crop&q=80&w=1200';
+                        }} 
+                      />
+                      <div className="absolute top-2 left-2 bg-black/70 backdrop-blur-md text-white text-[10px] font-bold uppercase tracking-widest px-2 py-1 rounded">Preview</div>
+                    </div>
+                  )}
+                </div>
                 <textarea required placeholder="Excerpt" value={blogFormData.excerpt} onChange={e => setBlogFormData({ ...blogFormData, excerpt: e.target.value })} className="w-full bg-surface-container border-none rounded-xl px-6 py-4 min-h-[100px]" />
-                <textarea required placeholder="Content (HTML)" value={blogFormData.content} onChange={e => setBlogFormData({ ...blogFormData, content: e.target.value })} className="w-full bg-surface-container border-none rounded-xl px-6 py-4 min-h-[300px] font-mono text-sm" />
+                <div className="bg-surface-container border-none rounded-xl overflow-hidden">
+                  <ReactQuill 
+                    theme="snow" 
+                    value={blogFormData.content} 
+                    onChange={content => setBlogFormData({ ...blogFormData, content })} 
+                    className="min-h-[300px]"
+                    placeholder="Write your article content here..."
+                  />
+                </div>
                 <button type="submit" className="w-full bg-primary text-on-primary py-4 rounded-xl font-black uppercase tracking-widest arctic-gradient">Save Article</button>
               </form>
             </motion.div>
