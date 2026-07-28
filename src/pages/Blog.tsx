@@ -51,7 +51,7 @@ export default function Blog() {
         description="Read the latest insights, updates, and stories from Ice Me Inc. about cold-chain innovation and community impact in Sierra Leone."
       />
       {/* Hero Section */}
-      <section className="relative py-24 md:py-32 overflow-hidden border-b border-outline-variant/20">
+      <section className="relative pt-24 pb-12 md:pt-32 md:pb-16 overflow-hidden border-b border-outline-variant/20">
         <div className="max-w-7xl mx-auto px-6 md:px-8 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -74,7 +74,7 @@ export default function Blog() {
       </section>
 
       {/* Blog Grid */}
-      <section className="py-24 md:py-32">
+      <section className="pt-12 pb-24 md:pt-16 md:pb-32">
         <div className="max-w-7xl mx-auto px-6 md:px-8">
           {loading ? (
             <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
