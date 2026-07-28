@@ -387,12 +387,12 @@ export default function Dashboard() {
             <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="relative w-full max-w-2xl bg-surface-container-lowest rounded-3xl p-8 shadow-2xl border border-outline-variant/10">
               <h2 className="text-3xl font-black text-primary mb-8 tracking-tighter uppercase">{editingGalleryItem ? 'Edit Snapshot' : 'New Snapshot'}</h2>
               <form onSubmit={handleGallerySubmit} className="space-y-6">
-                <input required placeholder="Title" value={galleryFormData.title} onChange={e => setGalleryFormData({ ...galleryFormData, title: e.target.value })} className="w-full bg-surface-container border-none rounded-xl px-6 py-4 font-bold" />
+                <input placeholder="Title (Optional)" value={galleryFormData.title} onChange={e => setGalleryFormData({ ...galleryFormData, title: e.target.value })} className="w-full bg-surface-container border-none rounded-xl px-6 py-4 font-bold" />
                 <select value={galleryFormData.category} onChange={e => setGalleryFormData({ ...galleryFormData, category: e.target.value })} className="w-full bg-surface-container border-none rounded-xl px-6 py-4 font-bold">
                   {['operations', 'facilities', 'logistics', 'community'].map(c => <option key={c} value={c}>{c}</option>)}
                 </select>
                 <input required placeholder="Image URL" value={galleryFormData.src} onChange={e => { setGalleryFormData({ ...galleryFormData, src: e.target.value, alt: galleryFormData.title }); }} className="w-full bg-surface-container border-none rounded-xl px-6 py-4 font-bold" />
-                <textarea required placeholder="Brief Description" value={galleryFormData.description} onChange={e => setGalleryFormData({ ...galleryFormData, description: e.target.value })} className="w-full bg-surface-container border-none rounded-xl px-6 py-4 min-h-[100px]" />
+                <textarea placeholder="Brief Description (Optional)" value={galleryFormData.description} onChange={e => setGalleryFormData({ ...galleryFormData, description: e.target.value })} className="w-full bg-surface-container border-none rounded-xl px-6 py-4 min-h-[100px]" />
                 <button type="submit" className="w-full bg-primary text-on-primary py-4 rounded-xl font-black uppercase tracking-widest arctic-gradient">Save Snapshot</button>
               </form>
             </motion.div>

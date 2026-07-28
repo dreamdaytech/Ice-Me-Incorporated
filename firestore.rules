@@ -110,5 +110,10 @@ service cloud.firestore {
                       request.resource.data.createdAt == resource.data.createdAt;
       allow delete: if isEditor() && (request.auth.uid == resource.data.authorUid || isAdmin());
     }
+
+    match /galleryItems/{itemId} {
+      allow read: if true;
+      allow write: if isEditor();
+    }
   }
 }
