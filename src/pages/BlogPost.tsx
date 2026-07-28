@@ -153,12 +153,12 @@ export default function BlogPost() {
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="aspect-[21/9] rounded-3xl overflow-hidden shadow-2xl bg-surface-container-high"
+          className="rounded-3xl overflow-hidden shadow-2xl bg-surface-container-high flex justify-center"
         >
           <img 
             src={getDriveImageUrl(post.image)} 
             alt={post.title} 
-            className="w-full h-full object-cover"
+            className="w-full h-auto max-h-[80vh] object-contain"
             referrerPolicy="no-referrer"
             onError={(e) => {
               (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1541888087617-646700abeb88?auto=format&fit=crop&q=80&w=1200';
