@@ -35,23 +35,18 @@ import { Link, useNavigate } from 'react-router-dom';
 import { cn } from '../lib/utils';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
-// --- Helpers ---
-
 /**
- * Converts a Google Drive share/view URL to a direct-embeddable image URL.
- * e.g. https://drive.google.com/file/d/FILE_ID/view?usp=... 
- *   => https://lh3.googleusercontent.com/d/FILE_ID
- * Passes any non-Drive URL through unchanged.
+ * Converts a Google Drive share/view URL to a direct-embeddable image URL
+ * using the thumbnail endpoint which works reliably for publicly shared files.
  */
 function getDriveImageUrl(url: string): string {
   if (!url) return url;
   const match = url.match(/drive\.google\.com\/file\/d\/([a-zA-Z0-9_-]+)/);
   if (match) {
-    return `https://lh3.googleusercontent.com/d/${match[1]}`;
+    return `https://drive.google.com/thumbnail?id=${match[1]}&sz=w1200`;
   }
   return url;
 }
-
 
 interface BlogPost {
   id: string;
@@ -291,7 +286,7 @@ export default function Dashboard() {
               <motion.div key="blog" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} className="space-y-4">
                 {posts.map(post => (
                   <div key={post.id} className="bg-surface-container-lowest border border-outline-variant/10 rounded-3xl p-6 flex flex-col md:flex-row items-center gap-6 group hover:shadow-xl transition-shadow">
-                    <img src={post.image} className="w-full md:w-40 aspect-video rounded-xl object-cover bg-surface-container-high" alt="" />
+                    <img src={getDriveImageUrl(post.image)} referrerPolicy="no-referrer" className="w-full md:w-40 aspect-video rounded-xl object-cover bg-surface-container-high" alt="" />
                     <div className="flex-grow">
                       <div className="flex gap-2 mb-2">
                         <span className="text-[10px] font-black uppercase tracking-widest text-primary bg-primary/5 px-2 py-0.5 rounded">{post.category}</span>

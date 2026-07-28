@@ -9,7 +9,7 @@ import SEO from '../components/SEO';
 function getDriveImageUrl(url: string): string {
   if (!url) return url;
   const match = url.match(/drive\.google\.com\/file\/d\/([a-zA-Z0-9_-]+)/);
-  if (match) return `https://lh3.googleusercontent.com/d/${match[1]}`;
+  if (match) return `https://drive.google.com/thumbnail?id=${match[1]}&sz=w1200`;
   return url;
 }
 
