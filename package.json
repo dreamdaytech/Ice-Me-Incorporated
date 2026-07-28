@@ -39,6 +39,7 @@
     "@types/node": "^22.14.0",
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
+    "@types/request": "^2.48.13",
     "@types/tough-cookie": "^4.0.5",
     "autoprefixer": "^10.4.21",
     "tailwindcss": "^4.1.14"
