@@ -288,9 +288,6 @@ export default function Dashboard() {
                   <div key={post.id} className="bg-surface-container-lowest border border-outline-variant/10 rounded-3xl p-6 flex flex-col md:flex-row items-center gap-6 group hover:shadow-xl transition-shadow">
                     <img src={getDriveImageUrl(post.image)} referrerPolicy="no-referrer" className="w-full md:w-40 aspect-video rounded-xl object-cover bg-surface-container-high" alt="" />
                     <div className="flex-grow">
-                      <div className="flex gap-2 mb-2">
-                        <span className="text-[10px] font-black uppercase tracking-widest text-primary bg-primary/5 px-2 py-0.5 rounded">{post.category}</span>
-                      </div>
                       <h3 className="text-xl font-black text-primary">{post.title}</h3>
                       <p className="text-on-surface-variant text-xs line-clamp-1">{post.excerpt}</p>
                     </div>

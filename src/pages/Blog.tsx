@@ -108,11 +108,6 @@ export default function Blog() {
                         (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1541888087617-646700abeb88?auto=format&fit=crop&q=80&w=1200';
                       }}
                     />
-                    <div className="absolute top-4 left-4">
-                      <span className="bg-white/90 dark:bg-surface/90 backdrop-blur-md text-primary text-[10px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-full shadow-sm">
-                        {post.category}
-                      </span>
-                    </div>
                   </Link>
                   
                   <div className="flex items-center gap-4 text-xs font-bold text-on-surface-variant/60 uppercase tracking-widest mb-4">
