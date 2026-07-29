@@ -303,7 +303,7 @@ export default function Dashboard() {
                 {galleryItems.map(item => (
                   <div key={item.id} className="bg-surface-container-lowest border border-outline-variant/10 rounded-3xl overflow-hidden group hover:shadow-xl transition-shadow">
                     <div className="aspect-square relative">
-                      <img src={item.src} className="w-full h-full object-cover" alt={item.title} />
+                      <img src={getDriveImageUrl(item.src)} className="w-full h-full object-cover" alt={item.title || 'Gallery image'} />
                       <div className="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-black/80 to-transparent">
                         <p className="text-white font-black text-sm">{item.title}</p>
                         <p className="text-white/60 text-[10px] uppercase tracking-widest">{item.category}</p>
@@ -392,6 +392,23 @@ export default function Dashboard() {
                   {['operations', 'facilities', 'logistics', 'community'].map(c => <option key={c} value={c}>{c}</option>)}
                 </select>
                 <input required placeholder="Image URL" value={galleryFormData.src} onChange={e => { setGalleryFormData({ ...galleryFormData, src: e.target.value, alt: galleryFormData.title }); }} className="w-full bg-surface-container border-none rounded-xl px-6 py-4 font-bold" />
+                
+                {galleryFormData.src && (
+                  <div className="w-full aspect-[16/9] rounded-xl overflow-hidden bg-surface-container-high border border-outline-variant/20 relative">
+                    <img 
+                      src={getDriveImageUrl(galleryFormData.src)} 
+                      alt="Preview" 
+                      className="w-full h-full object-cover"
+                      onError={(e) => {
+                        e.currentTarget.style.display = 'none';
+                        e.currentTarget.nextElementSibling?.classList.remove('hidden');
+                      }}
+                    />
+                    <div className="hidden absolute inset-0 flex items-center justify-center text-error bg-error-container/20 text-sm font-bold text-center p-4">
+                      ⚠ Could Not Load Image<br/>Make sure the URL is correct and public.
+                    </div>
+                  </div>
+                )}
                 <textarea placeholder="Brief Description (Optional)" value={galleryFormData.description} onChange={e => setGalleryFormData({ ...galleryFormData, description: e.target.value })} className="w-full bg-surface-container border-none rounded-xl px-6 py-4 min-h-[100px]" />
                 <button type="submit" className="w-full bg-primary text-on-primary py-4 rounded-xl font-black uppercase tracking-widest arctic-gradient">Save Snapshot</button>
               </form>

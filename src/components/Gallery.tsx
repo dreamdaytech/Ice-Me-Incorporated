@@ -14,6 +14,17 @@ interface GalleryImage {
   description: string;
 }
 
+/**
+ * Converts a Google Drive share/view URL to a direct-embeddable image URL
+ * using the thumbnail endpoint which works reliably for publicly shared files.
+ */
+function getDriveImageUrl(url: string): string {
+  if (!url) return url;
+  const match = url.match(/drive\.google\.com\/file\/d\/([a-zA-Z0-9_-]+)/);
+  if (match) return `https://drive.google.com/thumbnail?id=${match[1]}&sz=w1000`;
+  return url;
+}
+
 const STATIC_FALLBACK: GalleryImage[] = [
   {
     id: '1',
@@ -178,7 +189,7 @@ export default function Gallery() {
                 onClick={() => openLightbox(index)}
               >
                 <img
-                  src={image.src}
+                  src={getDriveImageUrl(image.src)}
                   alt={image.alt}
                   loading="lazy"
                   decoding="async"
@@ -240,7 +251,7 @@ export default function Gallery() {
             >
               <div className="relative w-full h-full max-h-[70vh] rounded-xl overflow-hidden bg-white/5">
                 <img
-                  src={filteredImages[selectedImageIndex].src}
+                  src={getDriveImageUrl(filteredImages[selectedImageIndex].src)}
                   alt={filteredImages[selectedImageIndex].alt}
                   decoding="async"
                   onLoad={() => handleImageLoad(`lightbox-${filteredImages[selectedImageIndex].id}`)}
