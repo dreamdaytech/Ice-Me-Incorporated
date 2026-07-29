@@ -384,7 +384,7 @@ export default function Dashboard() {
         {isGalleryModalOpen && (
           <div className="fixed inset-0 z-[100] flex items-center justify-center p-6">
             <div className="absolute inset-0 bg-background/80 backdrop-blur-md" onClick={() => setIsGalleryModalOpen(false)} />
-            <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="relative w-full max-w-2xl bg-surface-container-lowest rounded-3xl p-8 shadow-2xl border border-outline-variant/10">
+            <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="relative w-full max-w-2xl bg-surface-container-lowest rounded-3xl p-8 shadow-2xl border border-outline-variant/10 max-h-[90vh] overflow-y-auto">
               <h2 className="text-3xl font-black text-primary mb-8 tracking-tighter uppercase">{editingGalleryItem ? 'Edit Snapshot' : 'New Snapshot'}</h2>
               <form onSubmit={handleGallerySubmit} className="space-y-6">
                 <input placeholder="Title (Optional)" value={galleryFormData.title} onChange={e => setGalleryFormData({ ...galleryFormData, title: e.target.value })} className="w-full bg-surface-container border-none rounded-xl px-6 py-4 font-bold" />
@@ -394,7 +394,7 @@ export default function Dashboard() {
                 <input required placeholder="Image URL" value={galleryFormData.src} onChange={e => { setGalleryFormData({ ...galleryFormData, src: e.target.value, alt: galleryFormData.title }); }} className="w-full bg-surface-container border-none rounded-xl px-6 py-4 font-bold" />
                 
                 {galleryFormData.src && (
-                  <div className="w-full aspect-[16/9] rounded-xl overflow-hidden bg-surface-container-high border border-outline-variant/20 relative">
+                  <div className="w-full aspect-[21/9] rounded-xl overflow-hidden bg-surface-container-high border border-outline-variant/20 relative">
                     <img 
                       src={getDriveImageUrl(galleryFormData.src)} 
                       alt="Preview" 
